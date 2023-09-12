@@ -1,0 +1,20 @@
+{
+    "name": "${PACKAGE_NAME}",
+    "version": "${VERSION}",
+    "description": "Pulumi package for ${NAME}",
+    "keywords": ["pulumi", "azure", "azure-native", "category/cloud", "kind/native"],
+    "homepage": "https://pulumi.com",
+    "repository": {
+        "url": "git://github.com/elkjopnordic/IAM.PulumiTransformer.git",
+        "type": "git"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^3.0.0"
+    },
+    "scripts": {
+        "install": "node scripts/install-pulumi-plugin.js resource azure-native ${VERSION}"
+    }
+}
