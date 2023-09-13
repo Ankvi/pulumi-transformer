@@ -1,3 +1,7 @@
 {
-    "name": "pulumi-transformer"
+    "name": "pulumi-transformer",
+    "author": {
+        "name": "Andreas Kvist",
+        "url": "https://github.com/Ankvi"
+    }
 }
