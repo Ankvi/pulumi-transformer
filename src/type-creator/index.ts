@@ -1,7 +1,7 @@
 import { cp, mkdir, writeFile } from "node:fs/promises";
 import { createReadStream } from "node:fs";
 import { createInterface } from "node:readline/promises";
-import { AZURE_PATH, TYPES_FOLDER } from "../constants";
+import { AZURE_PATH, OUTPUT_PATH, TYPES_FOLDER } from "../constants";
 
 type TypesInfo = {
     hasEnums: boolean;
@@ -70,11 +70,11 @@ type ModuleTypeFiles = {
 }
 
 async function writeModuleTypeFiles(info: ModuleTypeFiles) {
-    const tmpFolder = `${TYPES_FOLDER}/${info.name}`;
-    await mkdir(tmpFolder, { recursive: true });
+    const typesFolder = `${OUTPUT_PATH}/${info.name}/types`;
+    await mkdir(typesFolder, { recursive: true });
 
     if (info.hasEnums) {
-        await cp(`${AZURE_PATH}/types/enums/${info.name}`, `${tmpFolder}/enums`, {
+        await cp(`${AZURE_PATH}/types/enums/${info.name}`, `${typesFolder}/enums`, {
             recursive: true,
         });
     }
@@ -83,11 +83,11 @@ async function writeModuleTypeFiles(info: ModuleTypeFiles) {
     const outputFileContent = info.outputs.join("\n");
 
     await Promise.all([
-        writeFile(`${tmpFolder}/input.ts`, inputFileContent),
-        writeFile(`${tmpFolder}/output.ts`, outputFileContent),
+        writeFile(`${typesFolder}/input.ts`, inputFileContent),
+        writeFile(`${typesFolder}/output.ts`, outputFileContent),
     ]);
 
-    await cp(`${__dirname}/type-index-file.template.ts`, `${tmpFolder}/index.ts`)
+    await cp(`${__dirname}/type-index-file.template.ts`, `${typesFolder}/index.ts`)
 
 }
 

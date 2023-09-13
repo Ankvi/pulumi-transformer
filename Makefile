@@ -1,6 +1,7 @@
 clean:
 	rm -rf tmp
-	rm -rf output
+	rm -rf output/src/*
+	touch output/src/.gitkeep
 
 azure-native:
 	git clone https://github.com/pulumi/pulumi-azure-native.git azure-native

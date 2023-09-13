@@ -32,7 +32,7 @@ export class Module implements IModule {
             }
         }
 
-        await this.copyTypes();
+        // await this.copyTypes();
     }
 
     private async copyTypes(): Promise<void> {

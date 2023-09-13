@@ -2,6 +2,7 @@ import { cp, mkdir, readdir } from "node:fs/promises";
 import { AZURE_PATH, OUTPUT_PATH } from "../constants";
 import { Module } from "./module";
 import { templateLoader } from "./templates/template-loader";
+import { execa } from "../helpers/execa";
 
 export async function createCorePackage() {
     const corePackageFolder = `${OUTPUT_PATH}/core`;
@@ -41,4 +42,10 @@ export async function createModules() {
             // });
         }
     }
+}
+
+export async function transpile() {
+    console.log("Transpiling output");
+    await execa("tsc", { cwd: OUTPUT_PATH, maxBuffer: 1024 * 1024  });
+    console.log("Transpile completed");
 }

@@ -2,7 +2,10 @@
     "compilerOptions": {
         "module": "CommonJS",
         "target": "ESNext",
-        "rootDir": "src",
-        "outDir": "build"
-    }
+        "outDir": "build",
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true
+    },
+    "include": ["./src/**/*.ts"],
+    "exclude": ["build"]
 }
