@@ -1,13 +1,7 @@
 azure-native
 node_modules
 
-!output/
-output/*
-!output/tsconfig.json
-
-!output/src/
 output/src/*
-!output/src/.gitkeep
 
 tmp
 

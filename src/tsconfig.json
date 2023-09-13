@@ -4,11 +4,12 @@
         "skipDefaultLibCheck": true,
         "skipLibCheck": true,
         "moduleResolution": "node",
-        "module": "CommonJS"
+        "module": "CommonJS",
+        "noEmit": true
     },
     "ts-node": {
         "transpileOnly": true
     },
-    "include": ["src/**/*.ts"],
-    "exclude": ["node_modules", "azure-native", "**/*.template.ts"]
+    "include": ["**/*.ts"],
+    "exclude": ["node_modules", "**/*.template.ts"]
 }

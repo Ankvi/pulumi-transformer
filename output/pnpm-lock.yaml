@@ -6,9 +6,7 @@ settings:
 
 importers:
 
-  .: {}
-
-  output:
+  .:
     dependencies:
       '@pulumi/pulumi':
         specifier: ^3.0.0
@@ -16,45 +14,1933 @@ importers:
     devDependencies:
       '@types/node':
         specifier: ^20.5.9
-        version: 20.5.9
+        version: 20.6.0
       typescript:
         specifier: ^5.2.2
         version: 5.2.2
 
-  src:
+  src/aad:
     dependencies:
-      octokit:
-        specifier: ^3.1.0
-        version: 3.1.0
-    devDependencies:
-      '@types/node':
-        specifier: ^20.5.9
-        version: 20.5.9
-      commander:
-        specifier: ^11.0.0
-        version: 11.0.0
-      ts-node:
-        specifier: ^10.9.1
-        version: 10.9.1(@types/node@20.5.9)(typescript@5.2.2)
-      typescript:
-        specifier: ^5.2.2
-        version: 5.2.2
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/aadiam:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/addons:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/advisor:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/agfoodplatform:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/alertsmanagement:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/analysisservices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/apicenter:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/apimanagement:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/app:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/appcomplianceautomation:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/appconfiguration:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/appplatform:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/attestation:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/authorization:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/automanage:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/automation:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/autonomousdevelopmentplatform:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/avs:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/azureactivedirectory:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/azurearcdata:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/azuredata:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/azuresphere:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/azurestack:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/azurestackhci:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/baremetalinfrastructure:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/batch:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/billing:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/blockchain:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/blueprint:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/botservice:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/cache:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/cdn:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/certificateregistration:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/changeanalysis:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/chaos:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/cognitiveservices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/communication:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/compute:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/confidentialledger:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/config:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/confluent:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/connectedvmwarevsphere:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/consumption:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/containerinstance:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/containerregistry:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/containerservice:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/containerstorage:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/core:
+    dependencies:
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/costmanagement:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/customerinsights:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/customproviders:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/dashboard:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/databox:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/databoxedge:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/databricks:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/datacatalog:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/datadog:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/datafactory:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/datalakeanalytics:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/datalakestore:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/datamigration:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/dataprotection:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/datareplication:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/datashare:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/dbformariadb:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/dbformysql:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/dbforpostgresql:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/delegatednetwork:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/deploymentmanager:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/desktopvirtualization:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/devcenter:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/devhub:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/devices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/deviceupdate:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/devspaces:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/devtestlab:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/digitaltwins:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/documentdb:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/domainregistration:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/dynamics365fraudprotection:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/easm:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/edgeorder:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/education:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/elastic:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/elasticsan:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/engagementfabric:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/enterpriseknowledgegraph:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/eventgrid:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/eventhub:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/extendedlocation:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/features:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/fluidrelay:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/graphservices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/guestconfiguration:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/hanaonazure:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/hardwaresecuritymodules:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/hdinsight:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/healthbot:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/healthcareapis:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/hybridcloud:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/hybridcompute:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/hybridconnectivity:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/hybridcontainerservice:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/hybriddata:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/hybridnetwork:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/importexport:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/insights:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/intune:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/iotcentral:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/iotfirmwaredefense:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/iotsecurity:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/keyvault:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/kubernetes:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/kubernetesconfiguration:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/kusto:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/labservices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/loadtestservice:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/logic:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/logz:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/m365securityandcompliance:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/machinelearning:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/machinelearningcompute:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/machinelearningexperimentation:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/machinelearningservices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/maintenance:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/managedidentity:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/managednetwork:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/managednetworkfabric:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/managedservices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/management:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/managementpartner:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/maps:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/marketplace:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/media:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/migrate:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/mixedreality:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/mobilenetwork:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/mobilepacketcore:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/monitor:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/netapp:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/network:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/networkcloud:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/networkfunction:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/notificationhubs:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/offazure:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/openenergyplatform:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/operationalinsights:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/operationsmanagement:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/orbital:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/peering:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/policyinsights:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/portal:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/powerbi:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/powerbidedicated:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/powerplatform:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/professionalservice:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/providerhub:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/purview:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/quantum:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/quota:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/recommendationsservice:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/recoveryservices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/redhatopenshift:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/relay:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/resourceconnector:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/resourcegraph:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/resourcehealth:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/resources:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/saas:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/scheduler:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/scom:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/scvmm:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/search:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/security:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/securityandcompliance:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/securitydevops:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/securityinsights:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/serialconsole:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/servicebus:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/servicefabric:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/servicefabricmesh:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/servicelinker:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/servicenetworking:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/signalrservice:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/softwareplan:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/solutions:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/sql:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/sqlvirtualmachine:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/storage:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/storagecache:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/storagemover:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/storagepool:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/storagesync:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/storagetasks:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/storsimple:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/streamanalytics:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/subscription:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/synapse:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/syntex:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/testbase:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/timeseriesinsights:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/videoanalyzer:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/videoindexer:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/virtualmachineimages:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/visualstudio:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/vmwarecloudsimple:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/voiceservices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/web:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/webpubsub:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/windowsesu:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/windowsiot:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  src/workloads:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
 
 packages:
-
-  /@cspotcode/source-map-support@0.8.1:
-    resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
-    engines: {node: '>=12'}
-    dependencies:
-      '@jridgewell/trace-mapping': 0.3.9
-    dev: true
 
   /@grpc/grpc-js@1.9.2:
     resolution: {integrity: sha512-Lf2pUhNTaviEdEaGgjU+29qw3arX7Qd/45q66F3z1EV5hroE6wM9xSHPvjB8EY+b1RmKZgwnLWXQorC6fZ9g5g==}
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.7.9
-      '@types/node': 20.5.9
+      '@types/node': 20.6.0
     dev: false
 
   /@grpc/proto-loader@0.7.9:
@@ -68,263 +1954,9 @@ packages:
       yargs: 17.7.2
     dev: false
 
-  /@jridgewell/resolve-uri@3.1.1:
-    resolution: {integrity: sha512-dSYZh7HhCDtCKm4QakX0xFpsRDqjjtZf/kjI/v3T3Nwt5r8/qz/M19F9ySyOqU94SXBmeG9ttTul+YnR4LOxFA==}
-    engines: {node: '>=6.0.0'}
-    dev: true
-
-  /@jridgewell/sourcemap-codec@1.4.15:
-    resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
-    dev: true
-
-  /@jridgewell/trace-mapping@0.3.9:
-    resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
-    dependencies:
-      '@jridgewell/resolve-uri': 3.1.1
-      '@jridgewell/sourcemap-codec': 1.4.15
-    dev: true
-
   /@logdna/tail-file@2.2.0:
     resolution: {integrity: sha512-XGSsWDweP80Fks16lwkAUIr54ICyBs6PsI4mpfTLQaWgEJRtY9xEV+PeyDpJ+sJEGZxqINlpmAwe/6tS1pP8Ng==}
     engines: {node: '>=10.3.0'}
-    dev: false
-
-  /@octokit/app@14.0.0:
-    resolution: {integrity: sha512-g/zDXttroZ9Se08shK0d0d/j0cgSA+h4WV7qGUevNEM0piNBkIlfb4Fm6bSwCNAZhNf72mBgERmYOoxicPkqdw==}
-    engines: {node: '>= 18'}
-    dependencies:
-      '@octokit/auth-app': 6.0.0
-      '@octokit/auth-unauthenticated': 5.0.0
-      '@octokit/core': 5.0.0
-      '@octokit/oauth-app': 6.0.0
-      '@octokit/plugin-paginate-rest': 8.0.0(@octokit/core@5.0.0)
-      '@octokit/types': 11.1.0
-      '@octokit/webhooks': 12.0.3
-    dev: false
-
-  /@octokit/auth-app@6.0.0:
-    resolution: {integrity: sha512-OKct7Rukf3g9DjpzcpdacQsdmd6oPrJ7fZND22JkjzhDvfhttUOnmh+qPS4kHhaNNyTxqSThnfrUWvkqNLd1nw==}
-    engines: {node: '>= 18'}
-    dependencies:
-      '@octokit/auth-oauth-app': 7.0.0
-      '@octokit/auth-oauth-user': 4.0.0
-      '@octokit/request': 8.1.1
-      '@octokit/request-error': 5.0.0
-      '@octokit/types': 11.1.0
-      deprecation: 2.3.1
-      lru-cache: 10.0.1
-      universal-github-app-jwt: 1.1.1
-      universal-user-agent: 6.0.0
-    dev: false
-
-  /@octokit/auth-oauth-app@7.0.0:
-    resolution: {integrity: sha512-8JvJEXGoEqrbzLwt3SwIUvkDd+1wrM8up0KawvDIElB8rbxPbvWppGO0SLKAWSJ0q8ILcVq+mWck6pDcZ3a9KA==}
-    engines: {node: '>= 18'}
-    dependencies:
-      '@octokit/auth-oauth-device': 6.0.0
-      '@octokit/auth-oauth-user': 4.0.0
-      '@octokit/request': 8.1.1
-      '@octokit/types': 11.1.0
-      '@types/btoa-lite': 1.0.0
-      btoa-lite: 1.0.0
-      universal-user-agent: 6.0.0
-    dev: false
-
-  /@octokit/auth-oauth-device@6.0.0:
-    resolution: {integrity: sha512-Zgf/LKhwWk54rJaTGYVYtbKgUty+ouil6VQeRd+pCw7Gd0ECoSWaZuHK6uDGC/HtnWHjpSWFhzxPauDoHcNRtg==}
-    engines: {node: '>= 18'}
-    dependencies:
-      '@octokit/oauth-methods': 4.0.0
-      '@octokit/request': 8.1.1
-      '@octokit/types': 11.1.0
-      universal-user-agent: 6.0.0
-    dev: false
-
-  /@octokit/auth-oauth-user@4.0.0:
-    resolution: {integrity: sha512-VOm5aIkVGHaOhIvsF/4YmSjoYDzzrKbbYkdSEO0KqHK7I8SlO3ZndSikQ1fBlNPUEH0ve2BOTxLrVvI1qBf9/Q==}
-    engines: {node: '>= 18'}
-    dependencies:
-      '@octokit/auth-oauth-device': 6.0.0
-      '@octokit/oauth-methods': 4.0.0
-      '@octokit/request': 8.1.1
-      '@octokit/types': 11.1.0
-      btoa-lite: 1.0.0
-      universal-user-agent: 6.0.0
-    dev: false
-
-  /@octokit/auth-token@4.0.0:
-    resolution: {integrity: sha512-tY/msAuJo6ARbK6SPIxZrPBms3xPbfwBrulZe0Wtr/DIY9lje2HeV1uoebShn6mx7SjCHif6EjMvoREj+gZ+SA==}
-    engines: {node: '>= 18'}
-    dev: false
-
-  /@octokit/auth-unauthenticated@5.0.0:
-    resolution: {integrity: sha512-AjOI6FNB2dweJ85p6rf7D4EhE4y6VBcwYfX/7KJkR5Q9fD9ET6NABAjajUTSNFfCxmNIaQgISggZ3pkgwtTqsA==}
-    engines: {node: '>= 18'}
-    dependencies:
-      '@octokit/request-error': 5.0.0
-      '@octokit/types': 11.1.0
-    dev: false
-
-  /@octokit/core@5.0.0:
-    resolution: {integrity: sha512-YbAtMWIrbZ9FCXbLwT9wWB8TyLjq9mxpKdgB3dUNxQcIVTf9hJ70gRPwAcqGZdY6WdJPZ0I7jLaaNDCiloGN2A==}
-    engines: {node: '>= 18'}
-    dependencies:
-      '@octokit/auth-token': 4.0.0
-      '@octokit/graphql': 7.0.1
-      '@octokit/request': 8.1.1
-      '@octokit/request-error': 5.0.0
-      '@octokit/types': 11.1.0
-      before-after-hook: 2.2.3
-      universal-user-agent: 6.0.0
-    dev: false
-
-  /@octokit/endpoint@9.0.0:
-    resolution: {integrity: sha512-szrQhiqJ88gghWY2Htt8MqUDO6++E/EIXqJ2ZEp5ma3uGS46o7LZAzSLt49myB7rT+Hfw5Y6gO3LmOxGzHijAQ==}
-    engines: {node: '>= 18'}
-    dependencies:
-      '@octokit/types': 11.1.0
-      is-plain-object: 5.0.0
-      universal-user-agent: 6.0.0
-    dev: false
-
-  /@octokit/graphql@7.0.1:
-    resolution: {integrity: sha512-T5S3oZ1JOE58gom6MIcrgwZXzTaxRnxBso58xhozxHpOqSTgDS6YNeEUvZ/kRvXgPrRz/KHnZhtb7jUMRi9E6w==}
-    engines: {node: '>= 18'}
-    dependencies:
-      '@octokit/request': 8.1.1
-      '@octokit/types': 11.1.0
-      universal-user-agent: 6.0.0
-    dev: false
-
-  /@octokit/oauth-app@6.0.0:
-    resolution: {integrity: sha512-bNMkS+vJ6oz2hCyraT9ZfTpAQ8dZNqJJQVNaKjPLx4ue5RZiFdU1YWXguOPR8AaSHS+lKe+lR3abn2siGd+zow==}
-    engines: {node: '>= 18'}
-    dependencies:
-      '@octokit/auth-oauth-app': 7.0.0
-      '@octokit/auth-oauth-user': 4.0.0
-      '@octokit/auth-unauthenticated': 5.0.0
-      '@octokit/core': 5.0.0
-      '@octokit/oauth-authorization-url': 6.0.2
-      '@octokit/oauth-methods': 4.0.0
-      '@types/aws-lambda': 8.10.120
-      universal-user-agent: 6.0.0
-    dev: false
-
-  /@octokit/oauth-authorization-url@6.0.2:
-    resolution: {integrity: sha512-CdoJukjXXxqLNK4y/VOiVzQVjibqoj/xHgInekviUJV73y/BSIcwvJ/4aNHPBPKcPWFnd4/lO9uqRV65jXhcLA==}
-    engines: {node: '>= 18'}
-    dev: false
-
-  /@octokit/oauth-methods@4.0.0:
-    resolution: {integrity: sha512-dqy7BZLfLbi3/8X8xPKUKZclMEK9vN3fK5WF3ortRvtplQTszFvdAGbTo71gGLO+4ZxspNiLjnqdd64Chklf7w==}
-    engines: {node: '>= 18'}
-    dependencies:
-      '@octokit/oauth-authorization-url': 6.0.2
-      '@octokit/request': 8.1.1
-      '@octokit/request-error': 5.0.0
-      '@octokit/types': 11.1.0
-      btoa-lite: 1.0.0
-    dev: false
-
-  /@octokit/openapi-types@18.0.0:
-    resolution: {integrity: sha512-V8GImKs3TeQRxRtXFpG2wl19V7444NIOTDF24AWuIbmNaNYOQMWRbjcGDXV5B+0n887fgDcuMNOmlul+k+oJtw==}
-    dev: false
-
-  /@octokit/plugin-paginate-graphql@4.0.0(@octokit/core@5.0.0):
-    resolution: {integrity: sha512-7HcYW5tP7/Z6AETAPU14gp5H5KmCPT3hmJrS/5tO7HIgbwenYmgw4OY9Ma54FDySuxMwD+wsJlxtuGWwuZuItA==}
-    engines: {node: '>= 18'}
-    peerDependencies:
-      '@octokit/core': '>=5'
-    dependencies:
-      '@octokit/core': 5.0.0
-    dev: false
-
-  /@octokit/plugin-paginate-rest@8.0.0(@octokit/core@5.0.0):
-    resolution: {integrity: sha512-2xZ+baZWUg+qudVXnnvXz7qfrTmDeYPCzangBVq/1gXxii/OiS//4shJp9dnCCvj1x+JAm9ji1Egwm1BA47lPQ==}
-    engines: {node: '>= 18'}
-    peerDependencies:
-      '@octokit/core': '>=5'
-    dependencies:
-      '@octokit/core': 5.0.0
-      '@octokit/types': 11.1.0
-    dev: false
-
-  /@octokit/plugin-rest-endpoint-methods@9.0.0(@octokit/core@5.0.0):
-    resolution: {integrity: sha512-KquMF/VB1IkKNiVnzJKspY5mFgGyLd7HzdJfVEGTJFzqu9BRFNWt+nwTCMuUiWc72gLQhRWYubTwOkQj+w/1PA==}
-    engines: {node: '>= 18'}
-    peerDependencies:
-      '@octokit/core': '>=5'
-    dependencies:
-      '@octokit/core': 5.0.0
-      '@octokit/types': 11.1.0
-    dev: false
-
-  /@octokit/plugin-retry@6.0.0(@octokit/core@5.0.0):
-    resolution: {integrity: sha512-a1/A4A+PB1QoAHQfLJxGHhLfSAT03bR1jJz3GgQJZvty2ozawFWs93MiBQXO7SL2YbO7CIq0Goj4qLOBj8JeMQ==}
-    engines: {node: '>= 18'}
-    peerDependencies:
-      '@octokit/core': '>=5'
-    dependencies:
-      '@octokit/core': 5.0.0
-      '@octokit/request-error': 5.0.0
-      '@octokit/types': 11.1.0
-      bottleneck: 2.19.5
-    dev: false
-
-  /@octokit/plugin-throttling@7.0.0(@octokit/core@5.0.0):
-    resolution: {integrity: sha512-KL2k/d0uANc8XqP5S64YcNFCudR3F5AaKO39XWdUtlJIjT9Ni79ekWJ6Kj5xvAw87udkOMEPcVf9xEge2+ahew==}
-    engines: {node: '>= 18'}
-    peerDependencies:
-      '@octokit/core': ^5.0.0
-    dependencies:
-      '@octokit/core': 5.0.0
-      '@octokit/types': 11.1.0
-      bottleneck: 2.19.5
-    dev: false
-
-  /@octokit/request-error@5.0.0:
-    resolution: {integrity: sha512-1ue0DH0Lif5iEqT52+Rf/hf0RmGO9NWFjrzmrkArpG9trFfDM/efx00BJHdLGuro4BR/gECxCU2Twf5OKrRFsQ==}
-    engines: {node: '>= 18'}
-    dependencies:
-      '@octokit/types': 11.1.0
-      deprecation: 2.3.1
-      once: 1.4.0
-    dev: false
-
-  /@octokit/request@8.1.1:
-    resolution: {integrity: sha512-8N+tdUz4aCqQmXl8FpHYfKG9GelDFd7XGVzyN8rc6WxVlYcfpHECnuRkgquzz+WzvHTK62co5di8gSXnzASZPQ==}
-    engines: {node: '>= 18'}
-    dependencies:
-      '@octokit/endpoint': 9.0.0
-      '@octokit/request-error': 5.0.0
-      '@octokit/types': 11.1.0
-      is-plain-object: 5.0.0
-      universal-user-agent: 6.0.0
-    dev: false
-
-  /@octokit/types@11.1.0:
-    resolution: {integrity: sha512-Fz0+7GyLm/bHt8fwEqgvRBWwIV1S6wRRyq+V6exRKLVWaKGsuy6H9QFYeBVDV7rK6fO3XwHgQOPxv+cLj2zpXQ==}
-    dependencies:
-      '@octokit/openapi-types': 18.0.0
-    dev: false
-
-  /@octokit/webhooks-methods@4.0.0:
-    resolution: {integrity: sha512-M8mwmTXp+VeolOS/kfRvsDdW+IO0qJ8kYodM/sAysk093q6ApgmBXwK1ZlUvAwXVrp/YVHp6aArj4auAxUAOFw==}
-    engines: {node: '>= 18'}
-    dev: false
-
-  /@octokit/webhooks-types@7.1.0:
-    resolution: {integrity: sha512-y92CpG4kFFtBBjni8LHoV12IegJ+KFxLgKRengrVjKmGE5XMeCuGvlfRe75lTRrgXaG6XIWJlFpIDTlkoJsU8w==}
-    dev: false
-
-  /@octokit/webhooks@12.0.3:
-    resolution: {integrity: sha512-8iG+/yza7hwz1RrQ7i7uGpK2/tuItZxZq1aTmeg2TNp2xTUB8F8lZF/FcZvyyAxT8tpDMF74TjFGCDACkf1kAQ==}
-    engines: {node: '>= 18'}
-    dependencies:
-      '@octokit/request-error': 5.0.0
-      '@octokit/webhooks-methods': 4.0.0
-      '@octokit/webhooks-types': 7.1.0
-      aggregate-error: 3.1.0
     dev: false
 
   /@opentelemetry/api-metrics@0.32.0:
@@ -549,57 +2181,8 @@ packages:
     resolution: {integrity: sha512-xfo+yLRM2zVjVEA4p23IjQWzyWl1ZhWOGobsBqRpIarzLvwNH/RAGaoehdxlhx4X92302DrpdIFgTICMN4P38w==}
     dev: false
 
-  /@tsconfig/node10@1.0.9:
-    resolution: {integrity: sha512-jNsYVVxU8v5g43Erja32laIDHXeoNvFEpX33OK4d6hljo3jDhCBDhx5dhCCTMWUojscpAagGiRkBKxpdl9fxqA==}
-    dev: true
-
-  /@tsconfig/node12@1.0.11:
-    resolution: {integrity: sha512-cqefuRsh12pWyGsIoBKJA9luFu3mRxCA+ORZvA4ktLSzIuCUtWVxGIuXigEwO5/ywWFMZ2QEGKWvkZG1zDMTag==}
-    dev: true
-
-  /@tsconfig/node14@1.0.3:
-    resolution: {integrity: sha512-ysT8mhdixWK6Hw3i1V2AeRqZ5WfXg1G43mqoYlM2nc6388Fq5jcXyr5mRsqViLx/GJYdoL0bfXD8nmF+Zn/Iow==}
-    dev: true
-
-  /@tsconfig/node16@1.0.4:
-    resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
-    dev: true
-
-  /@types/aws-lambda@8.10.120:
-    resolution: {integrity: sha512-ReLUWj/2EYNx7qs17bkBkgSmr0jB1GGTRyorhHJmq8nqlWxEyWyto1GFsGTGdbLI0cAj1AcbBAA1oZYUQEqZng==}
-    dev: false
-
-  /@types/btoa-lite@1.0.0:
-    resolution: {integrity: sha512-wJsiX1tosQ+J5+bY5LrSahHxr2wT+uME5UDwdN1kg4frt40euqA+wzECkmq4t5QbveHiJepfdThgQrPw6KiSlg==}
-    dev: false
-
-  /@types/jsonwebtoken@9.0.2:
-    resolution: {integrity: sha512-drE6uz7QBKq1fYqqoFKTDRdFCPHd5TCub75BM+D+cMx7NU9hUz7SESLfC2fSCXVFMO5Yj8sOWHuGqPgjc+fz0Q==}
-    dependencies:
-      '@types/node': 20.5.9
-    dev: false
-
-  /@types/node@20.5.9:
-    resolution: {integrity: sha512-PcGNd//40kHAS3sTlzKB9C9XL4K0sTup8nbG5lC14kzEteTNuAFh9u5nA0o5TWnSG2r/JNPRXFVcHJIIeRlmqQ==}
-
-  /acorn-walk@8.2.0:
-    resolution: {integrity: sha512-k+iyHEuPgSw6SbuDpGQM+06HQUa04DZ3o+F6CSzXMvvI5KMvnaEqXe+YVe555R9nn6GPt404fos4wcgpw12SDA==}
-    engines: {node: '>=0.4.0'}
-    dev: true
-
-  /acorn@8.10.0:
-    resolution: {integrity: sha512-F0SAmZ8iUtS//m8DmCTA0jlh6TDKkHQyK6xc6V4KDTyZKA9dnvX9/3sRTVQrWm79glUAZbnmmNcdYwUIHWVybw==}
-    engines: {node: '>=0.4.0'}
-    hasBin: true
-    dev: true
-
-  /aggregate-error@3.1.0:
-    resolution: {integrity: sha512-4I7Td01quW/RpocfNayFdFVk1qSuoh0E7JrbRJ16nH01HhKFQ88INq9Sd+nd72zqRySlr9BmDA8xlEJ6vJMrYA==}
-    engines: {node: '>=8'}
-    dependencies:
-      clean-stack: 2.2.0
-      indent-string: 4.0.0
-    dev: false
+  /@types/node@20.6.0:
+    resolution: {integrity: sha512-najjVq5KN2vsH2U/xyh2opaSEz6cZMR2SetLIlxlj08nOcmPOemJmUK2o4kUzfLqfrWE0PIrNeE16XhYDd3nqg==}
 
   /ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
@@ -612,10 +2195,6 @@ packages:
     dependencies:
       color-convert: 2.0.1
     dev: false
-
-  /arg@4.1.3:
-    resolution: {integrity: sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA==}
-    dev: true
 
   /argparse@1.0.10:
     resolution: {integrity: sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==}
@@ -672,27 +2251,11 @@ packages:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
     dev: false
 
-  /before-after-hook@2.2.3:
-    resolution: {integrity: sha512-NzUnlZexiaH/46WDhANlyR2bXRopNg4F/zuSA3OpZnllCUgRaOF2znDioDWrmbNVsuZk6l9pMquQB38cfBZwkQ==}
-    dev: false
-
-  /bottleneck@2.19.5:
-    resolution: {integrity: sha512-VHiNCbI1lKdl44tGrhNfU3lup0Tj/ZBMJB5/2ZbNXRCPuRCO7ed2mgcK4r17y+KB2EfuYuRaVlwNbAeaWGSpbw==}
-    dev: false
-
   /brace-expansion@1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
     dependencies:
       balanced-match: 1.0.2
       concat-map: 0.0.1
-    dev: false
-
-  /btoa-lite@1.0.0:
-    resolution: {integrity: sha512-gvW7InbIyF8AicrqWoptdW08pUxuhq8BEgowNajy9RhiE86fmGAGl+bLKo6oB8QP0CkqHLowfN0oJdKC/J6LbA==}
-    dev: false
-
-  /buffer-equal-constant-time@1.0.1:
-    resolution: {integrity: sha512-zRpUiDwd/xk6ADqPMATG8vc9VPrkck7T07OIx0gnjmJAnHnTVXNQG3vfvWNuiZIkwu9KrKdA1iJKfsfTVxE6NA==}
     dev: false
 
   /buffer-from@1.1.2:
@@ -704,11 +2267,6 @@ packages:
     dependencies:
       function-bind: 1.1.1
       get-intrinsic: 1.2.1
-    dev: false
-
-  /clean-stack@2.2.0:
-    resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
-    engines: {node: '>=6'}
     dev: false
 
   /cliui@8.0.1:
@@ -731,18 +2289,9 @@ packages:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
     dev: false
 
-  /commander@11.0.0:
-    resolution: {integrity: sha512-9HMlXtt/BNoYr8ooyjjNRdIilOTkVJXB+GhxMTtOKwk0R4j4lS4NpjuqmRxroBfnfTSHQIHQB7wryHhXarNjmQ==}
-    engines: {node: '>=16'}
-    dev: true
-
   /concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: false
-
-  /create-require@1.1.1:
-    resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
-    dev: true
 
   /cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
@@ -788,10 +2337,6 @@ packages:
       object-keys: 1.1.1
     dev: false
 
-  /deprecation@2.3.1:
-    resolution: {integrity: sha512-xmHIy4F3scKVwMsQ4WnVaS8bHOx0DmVwRywosKhaILI0ywMDWPtBSku2HNxRvF7jtwDRsoEwYQSfbxj8b7RlJQ==}
-    dev: false
-
   /dezalgo@1.0.4:
     resolution: {integrity: sha512-rXSP0bf+5n0Qonsb+SVVfNfIsimO4HEtmnIpPHY8Q1UCzKlQrDMfdobr8nJOOsRgWCyMRqeSBQzmWUMq7zvVig==}
     dependencies:
@@ -802,17 +2347,6 @@ packages:
   /diff@3.5.0:
     resolution: {integrity: sha512-A46qtFgd+g7pDZinpnwiRJtxbC1hpgf0uzP3iG89scHk0AUC7A1TGxf5OiiOUv/JMZR8GOt8hL900hV0bOy5xA==}
     engines: {node: '>=0.3.1'}
-    dev: false
-
-  /diff@4.0.2:
-    resolution: {integrity: sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==}
-    engines: {node: '>=0.3.1'}
-    dev: true
-
-  /ecdsa-sig-formatter@1.0.11:
-    resolution: {integrity: sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ==}
-    dependencies:
-      safe-buffer: 5.2.1
     dev: false
 
   /emoji-regex@8.0.0:
@@ -1057,11 +2591,6 @@ packages:
     engines: {node: '>=10.17.0'}
     dev: false
 
-  /indent-string@4.0.0:
-    resolution: {integrity: sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==}
-    engines: {node: '>=8'}
-    dev: false
-
   /inflight@1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}
     dependencies:
@@ -1144,11 +2673,6 @@ packages:
       has-tostringtag: 1.0.0
     dev: false
 
-  /is-plain-object@5.0.0:
-    resolution: {integrity: sha512-VRSzKkbMm5jMDoKLbltAkFQ5Qr7VDiTFGXxYFXXowVj387GeGNOCsOH6Msy00SGZ3Fp84b1Naa1psqgcCIEP5Q==}
-    engines: {node: '>=0.10.0'}
-    dev: false
-
   /is-regex@1.1.4:
     resolution: {integrity: sha512-kvRdxDsxZjhzUX07ZnLydzS1TU/TJlTUHHY4YLL87e37oUA49DfkLqgy+VjFocowy29cKvcSiu+kIv728jTTVg==}
     engines: {node: '>= 0.4'}
@@ -1215,37 +2739,6 @@ packages:
     resolution: {integrity: sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==}
     dev: false
 
-  /jsonwebtoken@9.0.2:
-    resolution: {integrity: sha512-PRp66vJ865SSqOlgqS8hujT5U4AOgMfhrwYIuIhfKaoSCZcirrmASQr8CX7cUg+RMih+hgznrjp99o+W4pJLHQ==}
-    engines: {node: '>=12', npm: '>=6'}
-    dependencies:
-      jws: 3.2.2
-      lodash.includes: 4.3.0
-      lodash.isboolean: 3.0.3
-      lodash.isinteger: 4.0.4
-      lodash.isnumber: 3.0.3
-      lodash.isplainobject: 4.0.6
-      lodash.isstring: 4.0.1
-      lodash.once: 4.1.1
-      ms: 2.1.2
-      semver: 7.5.4
-    dev: false
-
-  /jwa@1.4.1:
-    resolution: {integrity: sha512-qiLX/xhEEFKUAJ6FiBMbes3w9ATzyk5W7Hvzpa/SLYdxNtng+gcurvrI7TbACjIXlsJyr05/S1oUhZrc63evQA==}
-    dependencies:
-      buffer-equal-constant-time: 1.0.1
-      ecdsa-sig-formatter: 1.0.11
-      safe-buffer: 5.2.1
-    dev: false
-
-  /jws@3.2.2:
-    resolution: {integrity: sha512-YHlZCB6lMTllWDtSPHz/ZXTsi8S00usEV6v1tjq8tOUZzw7DpSDWVXjXDre6ed1w/pd495ODpHZYSdkRTsa0HA==}
-    dependencies:
-      jwa: 1.4.1
-      safe-buffer: 5.2.1
-    dev: false
-
   /locate-path@7.2.0:
     resolution: {integrity: sha512-gvVijfZvn7R+2qyPX8mAuKcFGDf6Nc61GdvGafQsHL0sBIxfKzA+usWn4GFC/bk+QdwPUD4kWFJLhElipq+0VA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
@@ -1257,41 +2750,8 @@ packages:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
     dev: false
 
-  /lodash.includes@4.3.0:
-    resolution: {integrity: sha512-W3Bx6mdkRTGtlJISOvVD/lbqjTlPPUDTMnlXZFnVwi9NKJ6tiAk6LVdlhZMm17VZisqhKcgzpO5Wz91PCt5b0w==}
-    dev: false
-
-  /lodash.isboolean@3.0.3:
-    resolution: {integrity: sha512-Bz5mupy2SVbPHURB98VAcw+aHh4vRV5IPNhILUCsOzRmsTmSQ17jIuqopAentWoehktxGd9e/hbIXq980/1QJg==}
-    dev: false
-
-  /lodash.isinteger@4.0.4:
-    resolution: {integrity: sha512-DBwtEWN2caHQ9/imiNeEA5ys1JoRtRfY3d7V9wkqtbycnAmTvRRmbHKDV4a0EYc678/dia0jrte4tjYwVBaZUA==}
-    dev: false
-
-  /lodash.isnumber@3.0.3:
-    resolution: {integrity: sha512-QYqzpfwO3/CWf3XP+Z+tkQsfaLL/EnUlXWVkIk5FUPc4sBdTehEqZONuyRt2P67PXAk+NXmTBcc97zw9t1FQrw==}
-    dev: false
-
-  /lodash.isplainobject@4.0.6:
-    resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
-    dev: false
-
-  /lodash.isstring@4.0.1:
-    resolution: {integrity: sha512-0wJxfxH1wgO3GrbuP+dTTk7op+6L41QCXbGINEmD+ny/G/eCqGzxyCsh7159S+mgDDcoarnBw6PC1PS5+wUGgw==}
-    dev: false
-
-  /lodash.once@4.1.1:
-    resolution: {integrity: sha512-Sb487aTOCr9drQVL8pIxOzVhafOjZN9UU54hiN8PU3uAiSV7lx1yYNpbNmex2PK6dSJoNTSJUUswT651yww3Mg==}
-    dev: false
-
   /long@5.2.3:
     resolution: {integrity: sha512-lcHwpNoggQTObv5apGNCTdJrO69eHOZMi4BNC+rTLER8iHAqGrUVeLh/irVIM7zTw2bOXA8T6uNPeujwOLg/2Q==}
-    dev: false
-
-  /lru-cache@10.0.1:
-    resolution: {integrity: sha512-IJ4uwUTi2qCccrioU6g9g/5rvvVl13bsdczUUcqbciD9iLr095yj8DQKdObriEvuNSx325N1rV1O0sJFszx75g==}
-    engines: {node: 14 || >=16.14}
     dev: false
 
   /lru-cache@6.0.0:
@@ -1303,6 +2763,7 @@ packages:
 
   /make-error@1.3.6:
     resolution: {integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==}
+    dev: false
 
   /merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
@@ -1398,22 +2859,6 @@ packages:
       safe-array-concat: 1.0.1
     dev: false
 
-  /octokit@3.1.0:
-    resolution: {integrity: sha512-dmIH5D+edpb4/ASd6ZGo6BiRR1g4ytu8lG4f+6XN/2AW+CSuTsT0nj1d6rv/HKgoflMQ1+rb3KlVWcvrmgQZhw==}
-    engines: {node: '>= 18'}
-    dependencies:
-      '@octokit/app': 14.0.0
-      '@octokit/core': 5.0.0
-      '@octokit/oauth-app': 6.0.0
-      '@octokit/plugin-paginate-graphql': 4.0.0(@octokit/core@5.0.0)
-      '@octokit/plugin-paginate-rest': 8.0.0(@octokit/core@5.0.0)
-      '@octokit/plugin-rest-endpoint-methods': 9.0.0(@octokit/core@5.0.0)
-      '@octokit/plugin-retry': 6.0.0(@octokit/core@5.0.0)
-      '@octokit/plugin-throttling': 7.0.0(@octokit/core@5.0.0)
-      '@octokit/request-error': 5.0.0
-      '@octokit/types': 11.1.0
-    dev: false
-
   /once@1.4.0:
     resolution: {integrity: sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w==}
     dependencies:
@@ -1482,7 +2927,7 @@ packages:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 20.5.9
+      '@types/node': 20.6.0
       long: 5.2.3
     dev: false
 
@@ -1561,10 +3006,6 @@ packages:
       get-intrinsic: 1.2.1
       has-symbols: 1.0.3
       isarray: 2.0.5
-    dev: false
-
-  /safe-buffer@5.2.1:
-    resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
     dev: false
 
   /safe-regex-test@1.0.0:
@@ -1713,37 +3154,6 @@ packages:
     engines: {node: '>= 0.4'}
     dev: false
 
-  /ts-node@10.9.1(@types/node@20.5.9)(typescript@5.2.2):
-    resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
-    hasBin: true
-    peerDependencies:
-      '@swc/core': '>=1.2.50'
-      '@swc/wasm': '>=1.2.50'
-      '@types/node': '*'
-      typescript: '>=2.7'
-    peerDependenciesMeta:
-      '@swc/core':
-        optional: true
-      '@swc/wasm':
-        optional: true
-    dependencies:
-      '@cspotcode/source-map-support': 0.8.1
-      '@tsconfig/node10': 1.0.9
-      '@tsconfig/node12': 1.0.11
-      '@tsconfig/node14': 1.0.3
-      '@tsconfig/node16': 1.0.4
-      '@types/node': 20.5.9
-      acorn: 8.10.0
-      acorn-walk: 8.2.0
-      arg: 4.1.3
-      create-require: 1.1.1
-      diff: 4.0.2
-      make-error: 1.3.6
-      typescript: 5.2.2
-      v8-compile-cache-lib: 3.0.1
-      yn: 3.1.1
-    dev: true
-
   /ts-node@7.0.1:
     resolution: {integrity: sha512-BVwVbPJRspzNh2yfslyT1PSbl5uIk03EZlb493RKHN4qej/D06n1cEhjlOJG69oFsE7OT8XjpTUcYf6pKTLMhw==}
     engines: {node: '>=4.2.0'}
@@ -1818,17 +3228,6 @@ packages:
       which-boxed-primitive: 1.0.2
     dev: false
 
-  /universal-github-app-jwt@1.1.1:
-    resolution: {integrity: sha512-G33RTLrIBMFmlDV4u4CBF7dh71eWwykck4XgaxaIVeZKOYZRAAxvcGMRFTUclVY6xoUPQvO4Ne5wKGxYm/Yy9w==}
-    dependencies:
-      '@types/jsonwebtoken': 9.0.2
-      jsonwebtoken: 9.0.2
-    dev: false
-
-  /universal-user-agent@6.0.0:
-    resolution: {integrity: sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==}
-    dev: false
-
   /upath@1.2.0:
     resolution: {integrity: sha512-aZwGpamFO61g3OlfT7OQCHqhGnW43ieH9WZeP7QxN/G/jS4jfqUkZxoryvJgVPEcrl5NL/ggHsSmLMHuH64Lhg==}
     engines: {node: '>=4'}
@@ -1839,10 +3238,6 @@ packages:
     dependencies:
       object.getownpropertydescriptors: 2.1.7
     dev: false
-
-  /v8-compile-cache-lib@3.0.1:
-    resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
-    dev: true
 
   /validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
@@ -1924,11 +3319,6 @@ packages:
     resolution: {integrity: sha512-uTv8J/wiWTgUTg+9vLTi//leUl5vDQS6uii/emeTb2ssY7vl6QWf2fFbIIGjnhjvbdKlU0ed7QPgY1htTC86jQ==}
     engines: {node: '>=4'}
     dev: false
-
-  /yn@3.1.1:
-    resolution: {integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==}
-    engines: {node: '>=6'}
-    dev: true
 
   /yocto-queue@1.0.0:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}

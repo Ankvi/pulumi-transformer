@@ -8,12 +8,12 @@ export async function createCorePackage() {
     const corePackageFolder = `${OUTPUT_PATH}/core`;
     await mkdir(corePackageFolder, { recursive: true });
 
-    // await templateLoader.writeTemplateToFolder({
-    //     subModule: {
-    //         name: "core",
-    //         outputPath: corePackageFolder,
-    //     },
-    // });
+    await templateLoader.writeTemplateToFolder({
+        subModule: {
+            name: "core",
+            outputPath: corePackageFolder,
+        },
+    });
 
     await Promise.all([
         cp(`${AZURE_PATH}/utilities.ts`, `${corePackageFolder}/utilities.ts`),
@@ -36,10 +36,10 @@ export async function createModules() {
 
             const subModule = new Module(dirent.name);
             await subModule.copyFiles();
-            // await templateLoader.writeTemplateToFolder({
-            //     subModule,
-            //     withCoreDeps: true,
-            // });
+            await templateLoader.writeTemplateToFolder({
+                subModule,
+                withCoreDeps: true,
+            });
         }
     }
 }

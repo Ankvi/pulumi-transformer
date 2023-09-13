@@ -21,6 +21,1920 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2
 
+  output/src/aad:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/aadiam:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/addons:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/advisor:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/agfoodplatform:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/alertsmanagement:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/analysisservices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/apicenter:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/apimanagement:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/app:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/appcomplianceautomation:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/appconfiguration:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/appplatform:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/attestation:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/authorization:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/automanage:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/automation:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/autonomousdevelopmentplatform:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/avs:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/azureactivedirectory:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/azurearcdata:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/azuredata:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/azuresphere:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/azurestack:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/azurestackhci:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/baremetalinfrastructure:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/batch:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/billing:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/blockchain:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/blueprint:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/botservice:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/cache:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/cdn:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/certificateregistration:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/changeanalysis:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/chaos:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/cognitiveservices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/communication:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/compute:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/confidentialledger:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/config:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/confluent:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/connectedvmwarevsphere:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/consumption:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/containerinstance:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/containerregistry:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/containerservice:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/containerstorage:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/core:
+    dependencies:
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/costmanagement:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/customerinsights:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/customproviders:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/dashboard:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/databox:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/databoxedge:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/databricks:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/datacatalog:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/datadog:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/datafactory:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/datalakeanalytics:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/datalakestore:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/datamigration:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/dataprotection:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/datareplication:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/datashare:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/dbformariadb:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/dbformysql:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/dbforpostgresql:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/delegatednetwork:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/deploymentmanager:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/desktopvirtualization:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/devcenter:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/devhub:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/devices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/deviceupdate:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/devspaces:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/devtestlab:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/digitaltwins:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/documentdb:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/domainregistration:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/dynamics365fraudprotection:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/easm:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/edgeorder:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/education:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/elastic:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/elasticsan:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/engagementfabric:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/enterpriseknowledgegraph:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/eventgrid:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/eventhub:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/extendedlocation:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/features:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/fluidrelay:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/graphservices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/guestconfiguration:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/hanaonazure:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/hardwaresecuritymodules:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/hdinsight:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/healthbot:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/healthcareapis:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/hybridcloud:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/hybridcompute:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/hybridconnectivity:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/hybridcontainerservice:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/hybriddata:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/hybridnetwork:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/importexport:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/insights:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/intune:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/iotcentral:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/iotfirmwaredefense:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/iotsecurity:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/keyvault:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/kubernetes:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/kubernetesconfiguration:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/kusto:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/labservices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/loadtestservice:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/logic:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/logz:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/m365securityandcompliance:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/machinelearning:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/machinelearningcompute:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/machinelearningexperimentation:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/machinelearningservices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/maintenance:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/managedidentity:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/managednetwork:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/managednetworkfabric:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/managedservices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/management:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/managementpartner:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/maps:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/marketplace:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/media:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/migrate:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/mixedreality:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/mobilenetwork:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/mobilepacketcore:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/monitor:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/netapp:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/network:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/networkcloud:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/networkfunction:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/notificationhubs:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/offazure:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/openenergyplatform:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/operationalinsights:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/operationsmanagement:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/orbital:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/peering:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/policyinsights:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/portal:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/powerbi:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/powerbidedicated:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/powerplatform:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/professionalservice:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/providerhub:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/purview:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/quantum:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/quota:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/recommendationsservice:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/recoveryservices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/redhatopenshift:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/relay:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/resourceconnector:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/resourcegraph:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/resourcehealth:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/resources:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/saas:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/scheduler:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/scom:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/scvmm:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/search:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/security:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/securityandcompliance:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/securitydevops:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/securityinsights:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/serialconsole:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/servicebus:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/servicefabric:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/servicefabricmesh:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/servicelinker:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/servicenetworking:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/signalrservice:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/softwareplan:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/solutions:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/sql:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/sqlvirtualmachine:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/storage:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/storagecache:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/storagemover:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/storagepool:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/storagesync:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/storagetasks:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/storsimple:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/streamanalytics:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/subscription:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/synapse:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/syntex:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/testbase:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/timeseriesinsights:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/videoanalyzer:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/videoindexer:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/virtualmachineimages:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/visualstudio:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/vmwarecloudsimple:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/voiceservices:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/web:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/webpubsub:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/windowsesu:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/windowsiot:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
+  output/src/workloads:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
   src:
     dependencies:
       octokit:

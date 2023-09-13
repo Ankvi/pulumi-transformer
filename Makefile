@@ -1,16 +1,25 @@
 clean:
 	rm -rf tmp
 	rm -rf output/src/*
-	touch output/src/.gitkeep
 
 azure-native:
-	git clone https://github.com/pulumi/pulumi-azure-native.git azure-native
+	git clone --no-checkout --filter=blob:none --sparse --depth 1 https://github.com/pulumi/pulumi-azure-native azure-native
+	cd azure-native && \
+		git sparse-checkout set sdk/nodejs && \
+		git checkout master
 
 node_modules:
-	npm install
+	pnpm install
 
-build: clean azure-native node_modules
-	npm run build
+azure-native/pull: azure-native
+	cd azure-native && git pull
 
-types: azure-native node_modules
-	npm run create-types
+build: clean azure-native/pull node_modules
+	pnpm --filter=cli build
+	cd output && pnpm install --ignore-scripts
+
+types: azure-native/pull node_modules
+	pnpm --filter=cli create-types
+
+transpile:
+	pnpm --filter=output build
