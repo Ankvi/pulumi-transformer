@@ -1,26 +1,11 @@
 import { readdir } from "node:fs/promises";
 import { OUTPUT_PATH } from "./constants";
 import { exec } from "node:child_process";
-import { templateLoader } from "./modules/templates/template-loader";
 
 export type PublishOptions = {
     dryRun?: boolean;
     logErrors?: boolean;
 }
-
-// export async function preparePackagesForPublishing() {
-//    const packages = await readdir(BUILD_PATH, {
-//         withFileTypes: true
-//     });
-//
-//     await Promise.all(packages.map(p => templateLoader.writeTemplateToFolder({
-//         subModule: {
-//             name: p.name,
-//             outputPath: p.path
-//         },
-//         withCoreDeps: p.name !== "core"
-//     })));
-// }
 
 export async function publishPackages({ dryRun, logErrors }: PublishOptions) {
     const folders = await readdir(OUTPUT_PATH, {

@@ -16,10 +16,18 @@ azure-native/pull: azure-native
 
 build: clean azure-native/pull node_modules
 	pnpm --filter=cli build
-	cd output && pnpm install --ignore-scripts
 
 types: azure-native/pull node_modules
 	pnpm --filter=cli create-types
 
 transpile:
+	cd output && \
+		pnpm install --ignore-scripts
+
 	pnpm --filter=output build
+
+publish: transpile
+	pnpm --filter=cli publish
+
+publish/dryrun: transpile
+	pnpm --filter=cli publish --dry-run

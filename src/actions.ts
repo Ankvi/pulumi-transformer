@@ -1,4 +1,4 @@
-import { createCorePackage, createModules, transpile } from "./modules";
+import { createCorePackage, createModules } from "./modules";
 import { PublishOptions, publishPackages } from "./publishing";
 
 import { createModuleTypeFiles } from "./type-creator";
