@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true,
+        "moduleResolution": "node",
+        "module": "CommonJS",
+        "noEmit": true
+    }
+}

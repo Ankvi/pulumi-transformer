@@ -2,8 +2,7 @@
     "name": "cli",
     "description": "Splits @pulumi/azure-native into smaller packages",
     "scripts": {
-        "build": "ts-node index.ts build",
-        "create-types": "ts-node index.ts create-types",
+        "create-output": "ts-node index.ts build",
         "publish": "ts-node index.ts publish",
         "publish:dryrun": "ts-node index.ts publish --dry-run",
         "unpublish": "ts-node index.ts unpublish",

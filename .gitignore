@@ -1,3 +1,6 @@
 azure-native
 node_modules
-output/src/*
+output/**/*.js
+!output/**/scripts/*.js
+output/**/*.d.ts
+.turbo

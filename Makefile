@@ -1,7 +1,3 @@
-clean:
-	rm -rf tmp
-	rm -rf output/src/*
-
 azure-native:
 	git clone --no-checkout --filter=blob:none --sparse --depth 1 https://github.com/pulumi/pulumi-azure-native azure-native
 	cd azure-native && \
@@ -17,8 +13,8 @@ azure-native/pull: azure-native
 list-module-names: azure-native/pull  node_modules
 	pnpm --filter=cli list-module-names
 
-output/build: clean azure-native/pull node_modules
-	pnpm --filter=cli build
+output: azure-native/pull node_modules
+	pnpm --filter=cli create-output
 
 output/install:
 	cd output && \
@@ -30,8 +26,8 @@ output/lint: output/install
 output/transpile: output/install
 	pnpm --filter=output build
 
-output/publish: output/transpile
-	pnpm --filter=cli publish
+publish: output/transpile
+	pnpm --filter=cli run publish
 
-output/publish/dryrun: output/transpile
-	pnpm --filter=cli publish --dry-run
+publish/dryrun: output/transpile
+	pnpm --filter=cli run publish:dryrun

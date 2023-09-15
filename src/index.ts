@@ -3,13 +3,7 @@ import * as actions from "./actions";
 
 const program = new Command();
 
-program
-    .command("build")
-    .action(actions.build);
-
-program
-    .command("create-types")
-    .action(actions.createTypes);
+program.command("build").option("-o, --output", "Output path").action(actions.build);
 
 program
     .command("publish")
@@ -22,11 +16,10 @@ program
 program
     .command("unpublish")
     .argument("<version>", "Version to unpublish")
+    .option("-d, --dry-run", "Dry run")
     .option("-l, --log-errors", "Log errors")
     .action(actions.unpublish);
 
-program
-    .command("list-module-names")
-    .action(actions.listModuleNames);
+program.command("list-module-names").action(actions.listModuleNames);
 
 program.parse();

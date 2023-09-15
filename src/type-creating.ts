@@ -1,7 +1,7 @@
 import { cp, mkdir, readdir, writeFile } from "node:fs/promises";
 import { Dirent, createReadStream } from "node:fs";
 import { createInterface } from "node:readline/promises";
-import { AZURE_PATH, OUTPUT_PATH, TYPES_FOLDER } from "./constants";
+import { AZURE_PATH, getOutputPath } from "./constants";
 
 type TypesInfo = {
     hasEnums: boolean;
@@ -36,14 +36,6 @@ function splitTypeFile(filePath: string): Promise<SplitTypesResult> {
                     };
                 }
 
-                // if (
-                //     line.includes(`enums.${currentModule}.`) &&
-                //     !moduleTypes[currentModule].hasEnums
-                // ) {
-                //     moduleTypes[currentModule].lines.unshift('import * as enums from "./enums";');
-                //     moduleTypes[currentModule].hasEnums = true;
-                // }
-
                 const formatted = line
                     .replaceAll(`${inputs ? "inputs" : "outputs"}.${currentModule}.`, "")
                     .replaceAll(`enums.${currentModule}.`, "enums.");
@@ -66,7 +58,7 @@ type ModuleTypeFiles = {
 };
 
 async function writeModuleTypeFiles(info: ModuleTypeFiles) {
-    const typesFolder = `${OUTPUT_PATH}/${info.name}/types`;
+    const typesFolder = `${getOutputPath()}/${info.name}/types`;
     await mkdir(typesFolder, { recursive: true });
 
     const indexContent = [];
@@ -76,25 +68,21 @@ async function writeModuleTypeFiles(info: ModuleTypeFiles) {
             recursive: true,
         });
         indexContent.push('export * as enums from "./enums";');
-        info.outputs?.unshift('import * as enums from "./enums";')
-        info.inputs?.unshift('import * as enums from "./enums";')
+        info.outputs?.unshift('import * as enums from "./enums";');
+        info.inputs?.unshift('import * as enums from "./enums";');
     } catch (error) {
         console.log(`${info.name} has no enums`);
     }
 
     if (info.inputs) {
         const inputFileContent = info.inputs.join("\n");
-        indexContent.push(
-            'export * as inputs from "./input";',
-        );
+        indexContent.push('export * as inputs from "./input";');
         writeFile(`${typesFolder}/input.ts`, inputFileContent);
     }
 
     if (info.outputs) {
         const outputFileContent = info.outputs.join("\n");
-        indexContent.push(
-            'export * as outputs from "./output";',
-        );
+        indexContent.push('export * as outputs from "./output";');
         writeFile(`${typesFolder}/output.ts`, outputFileContent);
     }
 
@@ -111,7 +99,7 @@ export async function createModuleTypeFiles(): Promise<void> {
     const outputs = await splitTypeFile(outputsFile);
 
     const enumFolders = await readdir(`${AZURE_PATH}/types/enums`, {
-       withFileTypes: true
+        withFileTypes: true,
     });
 
     const enumFolderMap = enumFolders.reduce<Map<string, Dirent>>((folders, dirent) => {
@@ -121,10 +109,14 @@ export async function createModuleTypeFiles(): Promise<void> {
         return folders;
     }, new Map());
 
-    const keySet = new Set([...Object.keys(inputs), ...Object.keys(outputs), ...Object.keys(enumFolderMap)]);
+    const keySet = new Set([
+        ...Object.keys(inputs),
+        ...Object.keys(outputs),
+        ...Object.keys(enumFolderMap),
+    ]);
     const keys = Array.from(keySet);
 
-    const stuff = keys.map<Promise<void>>((key) => {
+    const writeTasks = keys.map<Promise<void>>((key) => {
         const input = inputs[key];
         const output = outputs[key];
 
@@ -136,7 +128,7 @@ export async function createModuleTypeFiles(): Promise<void> {
         });
     });
 
-    await Promise.all(stuff);
+    await Promise.all(writeTasks);
 
     console.log("Successfully split original input/output type files");
 }
