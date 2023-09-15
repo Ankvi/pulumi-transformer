@@ -1,12 +1,7 @@
-name: CI
+name: Build and publish packages
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   prepare-cache:
@@ -16,7 +11,7 @@ jobs:
 
       - uses: ./.github/actions/setup-node
 
-  build-and-test:
+  build-and-publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -27,6 +22,6 @@ jobs:
         run: |
           make output/build
 
-      - name: Lint packages
+      - name: Publish packages
         run: |
-          make output/lint
+          make output/publish

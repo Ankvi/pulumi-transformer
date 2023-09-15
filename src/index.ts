@@ -19,4 +19,14 @@ program
         actions.publish(options);
     });
 
+program
+    .command("unpublish")
+    .argument("<version>", "Version to unpublish")
+    .option("-l, --log-errors", "Log errors")
+    .action(actions.unpublish);
+
+program
+    .command("list-module-names")
+    .action(actions.listModuleNames);
+
 program.parse();

@@ -217,6 +217,15 @@ importers:
         specifier: ^3.0.0
         version: 3.82.1
 
+  src/azureplaywrightservice:
+    dependencies:
+      '@elkjopnordic/pulumi-azure-core':
+        specifier: workspace:^
+        version: link:../core
+      '@pulumi/pulumi':
+        specifier: ^3.0.0
+        version: 3.82.1
+
   src/azuresphere:
     dependencies:
       '@elkjopnordic/pulumi-azure-core':

@@ -1,7 +1,7 @@
 import { cp, mkdir, readdir, writeFile } from "node:fs/promises";
 import { Dirent, createReadStream } from "node:fs";
 import { createInterface } from "node:readline/promises";
-import { AZURE_PATH, OUTPUT_PATH, TYPES_FOLDER } from "../constants";
+import { AZURE_PATH, OUTPUT_PATH, TYPES_FOLDER } from "./constants";
 
 type TypesInfo = {
     hasEnums: boolean;

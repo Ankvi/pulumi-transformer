@@ -1,7 +1,7 @@
 import { Dirent } from "node:fs";
 import { cp, mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { AZURE_PATH, MODULE_PREFIX, OUTPUT_PATH, TYPES_FOLDER } from "../constants";
-import { IModule } from "./templates/template-loader";
+import { IModule } from "./templates";
 
 export class Module implements IModule {
     private path: string;

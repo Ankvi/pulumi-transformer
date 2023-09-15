@@ -14,20 +14,24 @@ node_modules:
 azure-native/pull: azure-native
 	cd azure-native && git pull
 
-build: clean azure-native/pull node_modules
+list-module-names: azure-native/pull  node_modules
+	pnpm --filter=cli list-module-names
+
+output/build: clean azure-native/pull node_modules
 	pnpm --filter=cli build
 
-types: azure-native/pull node_modules
-	pnpm --filter=cli create-types
-
-transpile:
+output/install:
 	cd output && \
 		pnpm install --ignore-scripts
 
+output/lint: output/install
+	pnpm --filter=output lint
+
+output/transpile: output/install
 	pnpm --filter=output build
 
-publish: transpile
+output/publish: output/transpile
 	pnpm --filter=cli publish
 
-publish/dryrun: transpile
+output/publish/dryrun: output/transpile
 	pnpm --filter=cli publish --dry-run

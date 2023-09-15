@@ -1,6 +1,7 @@
 import { readdir } from "node:fs/promises";
 import { OUTPUT_PATH } from "./constants";
 import { exec } from "node:child_process";
+import { Octokit } from "@octokit/rest";
 
 export type PublishOptions = {
     dryRun?: boolean;
@@ -43,4 +44,9 @@ export async function publishPackages({ dryRun, logErrors }: PublishOptions) {
         console.log("Errors:");
         console.log(errors.join("\n"));
     }
+}
+
+export async function unpublishPackages(version: string, { logErrors}: PublishOptions) {
+    const octokit = new Octokit();
+
 }

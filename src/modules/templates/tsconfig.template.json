@@ -1,6 +1,16 @@
 {
     "compilerOptions": {
+        "target": "ES2016",
         "module": "CommonJS",
-        "target": "ESNext"
-    }
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "moduleResolution": "node",
+        "declaration": true,
+        "inlineSourceMap": true,
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true
+    },
+    "include": ["**/*.ts"],
+    "exclude": ["node_modules"]
 }

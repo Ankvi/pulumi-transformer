@@ -5,11 +5,8 @@
     "keywords": ["pulumi", "azure", "azure-native", "category/cloud", "kind/native"],
     "homepage": "https://pulumi.com",
     "repository": {
-        "url": "git://github.com/elkjopnordic/IAM.PulumiTransformer.git",
+        "url": "git://github.com/Ankvi/pulumi-transformer.git",
         "type": "git"
-    },
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com"
     },
     "dependencies": {
         "@pulumi/pulumi": "^3.0.0"
