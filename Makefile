@@ -14,20 +14,5 @@ list-module-names: azure-native/pull  node_modules
 	pnpm --filter=cli list-module-names
 
 output: azure-native/pull node_modules
-	pnpm --filter=cli create-output
+	bun src/index.ts build
 
-output/install:
-	cd output && \
-		pnpm install --ignore-scripts
-
-output/lint: output/install
-	pnpm --filter=output lint
-
-output/transpile: output/install
-	pnpm --filter=output build
-
-publish: output/transpile
-	pnpm --filter=cli run publish
-
-publish/dryrun: output/transpile
-	pnpm --filter=cli run publish:dryrun

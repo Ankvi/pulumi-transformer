@@ -87,10 +87,13 @@ class TemplateLoader {
             scripts: {
                 build: "tsc",
                 lint: "tsc --noEmit",
-                install: `node scripts/install-pulumi-plugin.js resource azure-native ${version}`,
-                prepublish: "pnpm run build",
+                // prepublish: "pnpm run build",
             },
         };
+
+        if (name === "core") {
+            template.scripts["install"] = `node scripts/install-pulumi-plugin.js resource azure-native ${version}`;
+        }
 
         if (withCoreDeps) {
             template.dependencies[`${MODULE_PREFIX}core`] = "workspace:^"; //version;
@@ -132,15 +135,6 @@ class TemplateLoader {
         );
     }
 
-    private async addInstallScript(folder: string): Promise<void> {
-        const scriptFolder = `${folder}/scripts`;
-        await mkdir(scriptFolder, { recursive: true });
-        await cp(
-            `${__dirname}/install-pulumi-plugin.js`,
-            `${scriptFolder}/install-pulumi-plugin.js`,
-        );
-    }
-
     public async writeTemplateToFolder({ subModule, withCoreDeps }: WriteOptions): Promise<void> {
         const folder = subModule.outputPath;
 
@@ -152,7 +146,6 @@ class TemplateLoader {
             await writeFile(`${folder}/README.md`, readme),
             await writeFile(`${folder}/tsconfig.json`, this.getTsConfig(), "utf-8"),
             await cp(`${__dirname}/.npmignore`, `${folder}/.npmignore`),
-            await this.addInstallScript(folder),
         ]);
     }
 }

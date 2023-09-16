@@ -1,4 +1,4 @@
-import { cp, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { AZURE_PATH } from "../constants";
 import { Module } from "./module";
 import { loader } from "./templates";
@@ -15,6 +15,13 @@ export async function createCorePackage() {
     await loader.writeTemplateToFolder({
         subModule: coreModule,
     });
+
+    const scriptFolder = `${coreModule.outputPath}/scripts`;
+    await mkdir(scriptFolder, { recursive: true });
+    await cp(
+        `${__dirname}/templates/install-pulumi-plugin.js`,
+        `${scriptFolder}/install-pulumi-plugin.js`,
+    );
 
     const indexFile = await readFile(`${AZURE_PATH}/index.ts`, { encoding: "utf-8" });
 
