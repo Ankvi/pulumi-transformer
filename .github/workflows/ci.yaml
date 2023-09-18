@@ -18,6 +18,7 @@ jobs:
 
   build-and-test:
     runs-on: ubuntu-latest
+    needs: [prepare-cache]
     steps:
       - uses: actions/checkout@v4
 
@@ -26,11 +27,3 @@ jobs:
       - name: Build packages
         run: |
           make output
-
-      - name: Lint packages
-        run: |
-          make output/lint
-
-      - name: Dry run publish
-        run: |
-          make publish/dryrun

@@ -5,13 +5,13 @@ azure-native:
 		git checkout master
 
 node_modules:
-	pnpm install
+	bun install
 
 azure-native/pull: azure-native
 	cd azure-native && git pull
 
 list-module-names: azure-native/pull  node_modules
-	pnpm --filter=cli list-module-names
+	bun src/index.ts list-module-names
 
 output: azure-native/pull node_modules
 	bun src/index.ts build
