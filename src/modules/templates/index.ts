@@ -87,12 +87,14 @@ class TemplateLoader {
             scripts: {
                 build: "tsc",
                 lint: "tsc --noEmit",
-                // prepublish: "pnpm run build",
+                prepublish: "pnpm run build",
             },
         };
 
         if (name === "core") {
-            template.scripts["install"] = `node scripts/install-pulumi-plugin.js resource azure-native ${version}`;
+            template.scripts[
+                "install"
+            ] = `node scripts/install-pulumi-plugin.js resource azure-native ${version}`;
         }
 
         if (withCoreDeps) {
