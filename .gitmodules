@@ -2,6 +2,3 @@
 	path = output
 	url = git@github.com:Ankvi/pulumi-azure-native.git
 
-[submodule "azure-native"]
-    path = azure-native
-    url = git@github.com:pulumi/pulumi-azure-native.git
