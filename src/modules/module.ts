@@ -73,7 +73,7 @@ export class Module implements IModule {
     private async writeSubModuleFile(subFolder: Dirent, file: Dirent) {
         const content = await Bun.file(`${this.path}/${subFolder.name}/${file.name}`).text();
 
-        let newContent = this.replaceCommonModuleFileContent(content);
+        let newContent = this.replaceCommonModuleFileContent(content, subFolder.name);
 
         if (file.name === "index.ts") {
             newContent = newContent.replace(
@@ -85,8 +85,8 @@ export class Module implements IModule {
         const imports = [...commonModuleImports];
 
         if (
-            newContent.includes(`types.inputs.${subFolder.name}.`) ||
-            newContent.includes(`types.outputs.${subFolder.name}.`) ||
+            newContent.includes(`types.inputs.`) ||
+            newContent.includes(`types.outputs.`) ||
             newContent.includes("types.enums.")
         ) {
             imports.push('import * as types from "./types";');
@@ -115,7 +115,8 @@ export class Module implements IModule {
             }),
         );
     }
-    private replaceCommonModuleFileContent(content: string): string {
+    private replaceCommonModuleFileContent(content: string, subModuleName?: string): string {
+        const toBeReplaced = subModuleName ? `${this.name}.${subModuleName}` : this.name;
         return (
             content
                 // Remove all existing import statements. We'll replace those
@@ -125,9 +126,9 @@ export class Module implements IModule {
                 .replaceAll(/\/\/\s\*\*\*\s.*/g, "")
 
                 // Wrap all references to types in types variable
-                .replaceAll(`enums.${this.name}`, "types.enums")
-                .replaceAll(`inputs.${this.name}.`, `types.inputs.`)
-                .replaceAll(`outputs.${this.name}.`, `types.outputs.`)
+                .replaceAll(`enums.${toBeReplaced}.`, "types.enums.")
+                .replaceAll(`inputs.${toBeReplaced}.`, "types.inputs.")
+                .replaceAll(`outputs.${toBeReplaced}.`, "types.outputs.")
                 .trimStart()
         );
     }

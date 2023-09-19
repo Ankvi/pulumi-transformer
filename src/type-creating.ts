@@ -1,7 +1,11 @@
-import { cp, mkdir, readdir } from "node:fs/promises";
-import { Dirent, createReadStream } from "node:fs";
+import { mkdir } from "node:fs/promises";
+import { createReadStream } from "node:fs";
 import { createInterface } from "node:readline/promises";
+import * as log from "loglevel";
 import { AZURE_PATH, PULUMI_IMPORT_STATEMENT, getOutputPath } from "./constants";
+import { getFolderNames } from "./folders";
+
+log.setLevel("debug");
 
 type SubModuleTypeInfo = {
     lines: string[];
@@ -109,117 +113,83 @@ function splitTypeFile(filePath: string): Promise<SplitTypesResult> {
 }
 
 type ModuleTypeFiles = {
-    name: string;
+    enumSourcePath: string;
+    outputTypesPath: string;
     inputs?: string[];
     outputs?: string[];
 };
 
 async function writeModuleTypeFiles(info: ModuleTypeFiles) {
-    const typesFolder = `${getOutputPath()}/${info.name}/types`;
-    await mkdir(typesFolder, { recursive: true });
+    await mkdir(info.outputTypesPath, { recursive: true });
 
-    const indexContent = [];
-
-    try {
-        await cp(`${AZURE_PATH}/types/enums/${info.name}/index.ts`, `${typesFolder}/enums.ts`);
-        indexContent.push('export * as enums from "./enums";');
-        info.outputs?.unshift('import * as enums from "./enums";');
-        info.inputs?.unshift('import * as enums from "./enums";');
-    } catch (error) {
-        // No enums exist for module
-    }
-
-    if (info.inputs) {
-        const inputFileContent = info.inputs.join("\n");
-        indexContent.push('export * as inputs from "./input";');
-        Bun.write(`${typesFolder}/input.ts`, inputFileContent);
-    }
-
-    if (info.outputs) {
-        const outputFileContent = info.outputs.join("\n");
-        indexContent.push('export * as outputs from "./output";');
-        Bun.write(`${typesFolder}/output.ts`, outputFileContent);
-    }
-
-    await Bun.write(`${typesFolder}/index.ts`, indexContent.join("\n"));
-}
-
-async function writeSubModuleTypeFiles(parentName: string, info: ModuleTypeFiles) {
-    const typesFolder = `${getOutputPath()}/${parentName}/${info.name}/types`;
-    await mkdir(typesFolder, { recursive: true });
-
-    const indexContent = [];
+    const indexContent: string[] = [];
 
     try {
-        const sourceFile = Bun.file(
-            `${AZURE_PATH}/types/enums/${parentName}/${info.name}/index.ts`,
-        );
-        const content = await sourceFile.text();
+        const content = await Bun.file(info.enumSourcePath).text();
         const formatted = content.substring(content.indexOf("export const "));
-        await Bun.write(`${typesFolder}/enums.ts`, formatted);
+        await Bun.write(`${info.outputTypesPath}/enums.ts`, formatted);
 
         indexContent.push('export * as enums from "./enums";');
         info.outputs?.unshift('import * as enums from "./enums";');
         info.inputs?.unshift('import * as enums from "./enums";');
     } catch (error) {
-        // No enums exist for sub module
+        // No enums
+        log.debug(`${info.enumSourcePath} does not exist`);
     }
 
     if (info.inputs) {
         const inputFileContent = info.inputs.join("\n");
         indexContent.push('export * as inputs from "./input";');
-        Bun.write(`${typesFolder}/input.ts`, inputFileContent);
+        Bun.write(`${info.outputTypesPath}/input.ts`, inputFileContent);
     }
 
     if (info.outputs) {
         const outputFileContent = info.outputs.join("\n");
         indexContent.push('export * as outputs from "./output";');
-        Bun.write(`${typesFolder}/output.ts`, outputFileContent);
+        Bun.write(`${info.outputTypesPath}/output.ts`, outputFileContent);
     }
 
-    await Bun.write(`${typesFolder}/index.ts`, indexContent.join("\n"));
+    await Bun.write(`${info.outputTypesPath}/index.ts`, indexContent.join("\n"));
 }
 
 export async function createModuleTypeFiles(): Promise<void> {
     const inputsFile = `${AZURE_PATH}/types/input.ts`;
     const outputsFile = `${AZURE_PATH}/types/output.ts`;
 
+    log.info("Splitting input/output type files");
     const inputs = await splitTypeFile(inputsFile);
     const outputs = await splitTypeFile(outputsFile);
 
-    const enumFolders = await readdir(`${AZURE_PATH}/types/enums`, {
-        withFileTypes: true,
-    });
+    const enumFolders = await getFolderNames(`${AZURE_PATH}/types/enums`);
 
-    const enumFolderMap = enumFolders.reduce<Map<string, Dirent>>(
-        (folders, dirent) => (dirent.isDirectory() ? folders.set(dirent.name, dirent) : folders),
-        new Map(),
-    );
+    const keys = [...new Set<string>([...inputs.keys(), ...outputs.keys(), ...enumFolders])];
 
-    const keys = [
-        ...new Set<string>([...inputs.keys(), ...outputs.keys(), ...enumFolderMap.keys()]),
-    ];
+    log.info("Creating new types folders");
 
     const writeTasks = keys.map<Promise<void>>(async (key) => {
         const input = inputs.get(key);
         const output = outputs.get(key);
 
+        const subVersionEnumFolders = await getFolderNames(`${AZURE_PATH}/types/enums/${key}`);
         const subVersions = new Set<string>([
             ...(input?.subVersions.keys() ?? []),
             ...(output?.subVersions.keys() ?? []),
+            ...subVersionEnumFolders,
         ]);
 
         const tasks: Promise<void>[] = [
             writeModuleTypeFiles({
-                name: key,
+                enumSourcePath: `${AZURE_PATH}/types/enums/${key}/index.ts`,
+                outputTypesPath: `${getOutputPath()}/${key}/types`,
                 inputs: input?.lines,
                 outputs: output?.lines,
             }),
         ];
         for (const subVersion of subVersions.keys()) {
             tasks.push(
-                writeSubModuleTypeFiles(key, {
-                    name: subVersion,
+                writeModuleTypeFiles({
+                    enumSourcePath: `${AZURE_PATH}/types/enums/${key}/${subVersion}/index.ts`,
+                    outputTypesPath: `${getOutputPath()}/${key}/${subVersion}/types`,
                     inputs: input?.subVersions?.get(subVersion)?.lines,
                     outputs: output?.subVersions?.get(subVersion)?.lines,
                 }),
