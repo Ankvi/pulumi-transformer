@@ -1,3 +1,11 @@
+clean:
+	rm src/modules/templates/pulumi-azure-native-version.txt
+
+clean/azure-native:
+	rm -r azure-native
+
+clean/all: clean clean/azure-native
+
 azure-native:
 	git clone --no-checkout --filter=blob:none --sparse --depth 1 https://github.com/pulumi/pulumi-azure-native azure-native
 	cd azure-native && \

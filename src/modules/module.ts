@@ -2,13 +2,6 @@ import { Dirent } from "node:fs";
 import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import { AZURE_PATH, MODULE_PREFIX, getOutputPath } from "../constants";
 import { IModule } from "./templates";
-import { execa } from "../helpers/execa";
-
-export type PublishResult = {
-    name: string;
-    success: boolean;
-    error?: string;
-};
 
 const commonModuleImports = [
     'import * as pulumi from "@pulumi/pulumi";',
@@ -48,53 +41,6 @@ export class Module implements IModule {
         }
     }
 
-    public async publish(dryRun?: boolean): Promise<PublishResult> {
-        console.info(`Publishing package: ${this.fullName}`);
-        const publishArgs: string[] = [];
-        if (dryRun) {
-            publishArgs.push("--dry-run");
-        } /* else if (!process.env.NPM_OTP) {
-            throw new Error(
-                "NPM publish requires an OTP. Provide one by setting the NPM_OTP environment variable",
-            );
-        } else {
-            publishArgs.push("--otp");
-            publishArgs.push(process.env.NPM_OTP);
-        }*/
-        try {
-            await execa(`npm publish ${publishArgs.join(" ")}`, {
-                cwd: this.outputPath,
-            });
-            return {
-                name: this.fullName,
-                success: true,
-            };
-        } catch (error) {
-            return {
-                name: this.fullName,
-                success: false,
-                error: error.message,
-            };
-        }
-    }
-
-    public async unpublish(version: string, dryRun?: boolean): Promise<PublishResult> {
-        console.log(`Unpublishing package: ${this.fullName}`);
-        try {
-            await execa(`npm unpublish ${this.fullName}@${version}  ${dryRun ? "--dry-run" : ""}`);
-            return {
-                name: this.fullName,
-                success: true,
-            };
-        } catch (error) {
-            return {
-                name: this.fullName,
-                success: false,
-                error: error.message,
-            };
-        }
-    }
-
     private async writeModuleFile(file: Dirent) {
         const content = await readFile(`${this.path}/${file.name}`, "utf-8");
 
@@ -110,8 +56,8 @@ export class Module implements IModule {
         const imports = [...commonModuleImports];
 
         if (
-            newContent.includes(`types.inputs.${this.name}.`) ||
-            newContent.includes(`types.outputs.${this.name}.`) ||
+            newContent.includes(`types.inputs.`) ||
+            newContent.includes(`types.outputs.`) ||
             newContent.includes("types.enums.")
         ) {
             imports.push('import * as types from "./types";');
@@ -127,10 +73,7 @@ export class Module implements IModule {
     private async writeSubModuleFile(subFolder: Dirent, file: Dirent) {
         const content = await readFile(`${this.path}/${subFolder.name}/${file.name}`, "utf-8");
 
-        let newContent = this.replaceCommonModuleFileContent(content); /*.replaceAll(
-            `../types/enums/${this.name}`,
-            "./types/enums",
-        );*/
+        let newContent = this.replaceCommonModuleFileContent(content);
 
         if (file.name === "index.ts") {
             newContent = newContent.replace(
@@ -142,8 +85,8 @@ export class Module implements IModule {
         const imports = [...commonModuleImports];
 
         if (
-            newContent.includes(`types.inputs.${this.name}.${subFolder.name}.`) ||
-            newContent.includes(`types.outputs.${this.name}.${subFolder.name}.`) ||
+            newContent.includes(`types.inputs.${subFolder.name}.`) ||
+            newContent.includes(`types.outputs.${subFolder.name}.`) ||
             newContent.includes("types.enums.")
         ) {
             imports.push('import * as types from "../types";');
@@ -180,8 +123,8 @@ export class Module implements IModule {
 
                 // Wrap all references to types in types variable
                 .replaceAll(`enums.${this.name}`, "types.enums")
-                .replaceAll(`inputs.${this.name}.`, `types.inputs.${this.name}.`)
-                .replaceAll(`outputs.${this.name}.`, `types.outputs.${this.name}.`)
+                .replaceAll(`inputs.${this.name}.`, `types.inputs.`)
+                .replaceAll(`outputs.${this.name}.`, `types.outputs.`)
                 .trimStart()
         );
     }

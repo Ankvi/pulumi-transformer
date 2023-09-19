@@ -27,8 +27,6 @@ function splitTypeFile(filePath: string): Promise<SplitTypesResult> {
         file.on("line", async (line) => {
             if (line.startsWith(subModuleTypeStart)) {
                 currentModule = line.substring(subModuleTypeStart.length, line.indexOf("{") - 1);
-            }
-            if (currentModule) {
                 if (!moduleTypes[currentModule]) {
                     moduleTypes[currentModule] = {
                         hasEnums: false,
@@ -36,7 +34,17 @@ function splitTypeFile(filePath: string): Promise<SplitTypesResult> {
                     };
                 }
 
+                return;
+            }
+
+            if (line === "}") {
+                currentModule = undefined;
+                return;
+            }
+
+            if (currentModule) {
                 const formatted = line
+                    .replace("    ", "") // Remove first tab to compensate for missing namespace
                     .replaceAll(`${inputs ? "inputs" : "outputs"}.${currentModule}.`, "")
                     .replaceAll(`enums.${currentModule}.`, "enums.");
 
