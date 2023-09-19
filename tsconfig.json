@@ -1,11 +1,16 @@
 {
     "compilerOptions": {
+        "lib": ["esnext"],
         "target": "ESNext",
         "skipDefaultLibCheck": true,
         "skipLibCheck": true,
-        "moduleResolution": "node",
-        "module": "CommonJS",
-        "noEmit": true
+        "moduleResolution": "bundler",
+        "module": "esnext",
+        "noEmit": true,
+        "strict": true,
+        "types": [
+            "bun-types"
+        ]
     },
     "include": ["src/**/*.ts"],
     "exclude": ["node_modules", "**/*.template.ts", "output"]

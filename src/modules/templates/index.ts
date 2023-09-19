@@ -1,7 +1,7 @@
 import { Octokit } from "@octokit/rest";
-import { writeFile, cp, readFile, mkdir } from "node:fs/promises";
+import { cp, readFile } from "node:fs/promises";
 import { PackageJson } from "./types";
-import { AZURE_PATH, MODULE_PREFIX } from "../../constants";
+import { MODULE_PREFIX } from "../../constants";
 
 type WriteOptions = {
     subModule: IModule;
@@ -13,7 +13,7 @@ export interface IModule {
     outputPath: string;
 }
 
-const versionCacheFilePath = `${__dirname}/pulumi-azure-native-version.txt`;
+const versionCacheFilePath = `${import.meta.dir}/pulumi-azure-native-version.txt`;
 
 class TemplateLoader {
     private readmeTemplate?: string;
@@ -29,9 +29,7 @@ class TemplateLoader {
 
     private async getVersion(): Promise<string> {
         try {
-            const cache = await readFile(versionCacheFilePath, {
-                encoding: "utf-8",
-            });
+            const cache = await Bun.file(versionCacheFilePath).text();
 
             const cachedVersion = cache.trim();
             console.debug(`Found cached @pulumi/pulumi-azure-native version: '${cachedVersion}'`);
@@ -48,7 +46,7 @@ class TemplateLoader {
 
         const releases = releasesResponse.data ?? [];
 
-        if (!releases.length) {
+        if (!releases[0]?.name) {
             throw new Error("No releases found. Unable to set version");
         }
 
@@ -56,7 +54,7 @@ class TemplateLoader {
 
         console.debug(`Found @pulumi/azure-native version: '${version}'`);
 
-        await writeFile(versionCacheFilePath, version);
+        await Bun.write(versionCacheFilePath, version);
 
         return version;
     }
@@ -106,7 +104,7 @@ class TemplateLoader {
 
     private async getReadme(name: string): Promise<string> {
         if (!this.readmeTemplate) {
-            this.readmeTemplate = await readFile(`${__dirname}/README.template.md`, {
+            this.readmeTemplate = await readFile(`${import.meta.dir}/README.template.md`, {
                 encoding: "utf-8",
             });
         }
@@ -144,10 +142,10 @@ class TemplateLoader {
         const readme = await this.getReadme(subModule.name);
 
         await Promise.all([
-            await writeFile(`${folder}/package.json`, packageJson, "utf-8"),
-            await writeFile(`${folder}/README.md`, readme),
-            await writeFile(`${folder}/tsconfig.json`, this.getTsConfig(), "utf-8"),
-            await cp(`${__dirname}/.npmignore`, `${folder}/.npmignore`),
+            await Bun.write(`${folder}/package.json`, packageJson),
+            await Bun.write(`${folder}/README.md`, readme),
+            await Bun.write(`${folder}/tsconfig.json`, this.getTsConfig()),
+            await cp(`${import.meta.dir}/.npmignore`, `${folder}/.npmignore`),
         ]);
     }
 }

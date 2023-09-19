@@ -1,21 +1,22 @@
 {
-    "name": "pulumi-transformer",
-    "author": {
-        "name": "Andreas Kvist",
-        "url": "https://github.com/Ankvi"
-    },
-    "dependencies": {
-        "commander": "^11.0.0",
-        "@octokit/rest": "^20.0.1"
-    },
-    "devDependencies": {
-        "@types/node": "^20.5.9",
-        "typescript": "^5.2.2",
-        "@typescript-eslint/eslint-plugin": "^6.7.0",
-        "@typescript-eslint/parser": "^6.7.0",
-        "eslint": "^8.49.0",
-        "eslint-config-prettier": "^9.0.0",
-        "eslint-plugin-prettier": "^5.0.0",
-        "prettier": "^3.0.3"
-    }
+  "name": "pulumi-transformer",
+  "author": {
+    "name": "Andreas Kvist",
+    "url": "https://github.com/Ankvi"
+  },
+  "dependencies": {
+    "commander": "^11.0.0",
+    "@octokit/rest": "^20.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.9",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "bun-types": "^1.0.2",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  }
 }

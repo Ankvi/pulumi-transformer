@@ -78,7 +78,7 @@ export class Module implements IModule {
         if (file.name === "index.ts") {
             newContent = newContent.replace(
                 `export * from "../../types/enums/${this.name}/${subFolder.name}";`,
-                `export * from "../types/enums/${subFolder.name}";`,
+                `export * from "./types/enums";`,
             );
         }
 
@@ -89,7 +89,7 @@ export class Module implements IModule {
             newContent.includes(`types.outputs.${subFolder.name}.`) ||
             newContent.includes("types.enums.")
         ) {
-            imports.push('import * as types from "../types";');
+            imports.push('import * as types from "./types";');
         }
 
         await writeFile(

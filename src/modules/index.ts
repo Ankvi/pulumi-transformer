@@ -19,7 +19,7 @@ export async function createCorePackage() {
     const scriptFolder = `${coreModule.outputPath}/scripts`;
     await mkdir(scriptFolder, { recursive: true });
     await cp(
-        `${__dirname}/templates/install-pulumi-plugin.js`,
+        `${import.meta.dir}/templates/install-pulumi-plugin.js`,
         `${scriptFolder}/install-pulumi-plugin.js`,
     );
 
