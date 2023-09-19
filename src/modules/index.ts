@@ -1,4 +1,4 @@
-import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, readdir, rm } from "node:fs/promises";
 import { AZURE_PATH } from "../constants";
 import { Module } from "./module";
 import { loader } from "./templates";
@@ -23,7 +23,7 @@ export async function createCorePackage() {
         `${scriptFolder}/install-pulumi-plugin.js`,
     );
 
-    const indexFile = await readFile(`${AZURE_PATH}/index.ts`, { encoding: "utf-8" });
+    const indexFile = await Bun.file(`${AZURE_PATH}/index.ts`).text();
 
     // Filter out import/export statements for submodules
     const exports = indexFile.substring(
@@ -33,7 +33,7 @@ export async function createCorePackage() {
     const formattedIndexFile = indexFile.replace(exports, "");
 
     await Promise.all([
-        writeFile(`${coreModule.outputPath}/index.ts`, formattedIndexFile),
+        Bun.write(`${coreModule.outputPath}/index.ts`, formattedIndexFile),
         cp(`${AZURE_PATH}/utilities.ts`, `${coreModule.outputPath}/utilities.ts`),
         cp(`${AZURE_PATH}/provider.ts`, `${coreModule.outputPath}/provider.ts`),
     ]);

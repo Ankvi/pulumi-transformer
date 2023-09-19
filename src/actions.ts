@@ -11,9 +11,16 @@ export async function build(options: BuildOptions) {
         process.env.OUTPUT_PATH = options.output;
     }
 
+    console.log("Removing old output");
     await cleanOutputPaths();
+
+    console.log("Creating type files");
     await createModuleTypeFiles();
+
+    console.log("Creating core module");
     await createCorePackage();
+
+    console.log("Creating other modules");
     await createModules();
 }
 

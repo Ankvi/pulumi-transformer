@@ -1,5 +1,5 @@
 import { Dirent } from "node:fs";
-import { mkdir, readFile, readdir, writeFile } from "node:fs/promises";
+import { mkdir, readdir } from "node:fs/promises";
 import { AZURE_PATH, MODULE_PREFIX, getOutputPath } from "../constants";
 import { IModule } from "./templates";
 
@@ -20,7 +20,11 @@ export class Module implements IModule {
     }
 
     public async createFolder(): Promise<void> {
-        await mkdir(this.outputPath, { recursive: true });
+        try {
+            await mkdir(this.outputPath, { recursive: true });
+        } catch (error) {
+            // Directory already exists
+        }
     }
 
     public async copyFiles(): Promise<void> {
@@ -42,7 +46,7 @@ export class Module implements IModule {
     }
 
     private async writeModuleFile(file: Dirent) {
-        const content = await readFile(`${this.path}/${file.name}`, "utf-8");
+        const content = await Bun.file(`${this.path}/${file.name}`).text();
 
         let newContent = this.replaceCommonModuleFileContent(content);
 
@@ -63,15 +67,11 @@ export class Module implements IModule {
             imports.push('import * as types from "./types";');
         }
 
-        await writeFile(
-            `${this.outputPath}/${file.name}`,
-            `${imports.join("\n")}\n${newContent}`,
-            "utf-8",
-        );
+        await Bun.write(`${this.outputPath}/${file.name}`, `${imports.join("\n")}\n${newContent}`);
     }
 
     private async writeSubModuleFile(subFolder: Dirent, file: Dirent) {
-        const content = await readFile(`${this.path}/${subFolder.name}/${file.name}`, "utf-8");
+        const content = await Bun.file(`${this.path}/${subFolder.name}/${file.name}`).text();
 
         let newContent = this.replaceCommonModuleFileContent(content);
 
@@ -92,10 +92,9 @@ export class Module implements IModule {
             imports.push('import * as types from "./types";');
         }
 
-        await writeFile(
+        await Bun.write(
             `${this.outputPath}/${subFolder.name}/${file.name}`,
             `${imports.join("\n")}\n${newContent}`,
-            "utf-8",
         );
     }
 
@@ -104,7 +103,11 @@ export class Module implements IModule {
             withFileTypes: true,
         });
 
-        await mkdir(`${this.outputPath}/${subFolder.name}`);
+        try {
+            await mkdir(`${this.outputPath}/${subFolder.name}`);
+        } catch (error) {
+            // Directory already exists
+        }
 
         await Promise.all(
             subVersionFiles.map(async (file) => {

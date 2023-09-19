@@ -1,4 +1,4 @@
-import { cp, mkdir, readdir, writeFile } from "node:fs/promises";
+import { cp, mkdir, readdir } from "node:fs/promises";
 import { Dirent, createReadStream } from "node:fs";
 import { createInterface } from "node:readline/promises";
 import { AZURE_PATH, PULUMI_IMPORT_STATEMENT, getOutputPath } from "./constants";
@@ -42,64 +42,64 @@ function splitTypeFile(filePath: string): Promise<SplitTypesResult> {
                         lines: [PULUMI_IMPORT_STATEMENT],
                         subVersions: new Map(),
                     };
-                    moduleTypes.set(currentModuleName, currentModule);
                 }
 
                 return;
             }
 
+            if (!currentModule) {
+                return;
+            }
+
             if (line === moduleTypeEnd) {
+                moduleTypes.set(currentModuleName, currentModule);
                 currentModule = undefined;
                 currentSubModule = undefined;
                 return;
             }
 
-            if (line === subModuleTypeEnd) {
+            if (line === subModuleTypeEnd && currentSubModule) {
+                currentModule.subVersions.set(currentSubModuleName, currentSubModule);
                 currentSubModule = undefined;
                 return;
             }
 
-            if (currentModule) {
-                if (line.startsWith(subModuleTypeStart)) {
-                    currentSubModuleName = line.substring(
-                        subModuleTypeStart.length,
-                        line.indexOf("{") - 1,
-                    );
-                    if (!currentModule.subVersions.has(currentSubModuleName)) {
-                        currentSubModule = {
-                            lines: [PULUMI_IMPORT_STATEMENT],
-                        };
-                        currentModule.subVersions.set(currentSubModuleName, currentSubModule);
-                    }
-
-                    return;
+            if (line.startsWith(subModuleTypeStart)) {
+                currentSubModuleName = line.substring(
+                    subModuleTypeStart.length - 1,
+                    line.indexOf("{") - 1,
+                );
+                if (!currentModule.subVersions.has(currentSubModuleName)) {
+                    currentSubModule = {
+                        lines: [PULUMI_IMPORT_STATEMENT],
+                    };
                 }
 
-                if (currentSubModule) {
-                    const formatted = line
-                        .replace("    ", "") // Remove first tab to compensate for missing namespace
-                        .replaceAll(
-                            `${inputs ? "inputs" : "outputs"
-                            }.${currentModuleName}.${currentSubModuleName}.`,
-                            "",
-                        )
-                        .replaceAll(
-                            `enums.${currentModuleName}.${currentSubModuleName}.`,
-                            "enums.",
-                        );
+                return;
+            }
 
-                    currentSubModule.lines.push(formatted);
-
-                    return;
-                }
-
+            if (currentSubModule) {
                 const formatted = line
                     .replace("    ", "") // Remove first tab to compensate for missing namespace
-                    .replaceAll(`${inputs ? "inputs" : "outputs"}.${currentModuleName}.`, "")
-                    .replaceAll(`enums.${currentModuleName}.`, "enums.");
+                    .replaceAll(
+                        `${
+                            inputs ? "inputs" : "outputs"
+                        }.${currentModuleName}.${currentSubModuleName}.`,
+                        "",
+                    )
+                    .replaceAll(`enums.${currentModuleName}.${currentSubModuleName}.`, "enums.");
 
-                currentModule.lines.push(formatted);
+                currentSubModule.lines.push(formatted);
+
+                return;
             }
+
+            const formatted = line
+                .replace("    ", "") // Remove first tab to compensate for missing namespace
+                .replaceAll(`${inputs ? "inputs" : "outputs"}.${currentModuleName}.`, "")
+                .replaceAll(`enums.${currentModuleName}.`, "enums.");
+
+            currentModule.lines.push(formatted);
         });
 
         file.on("close", () => {
@@ -126,22 +126,22 @@ async function writeModuleTypeFiles(info: ModuleTypeFiles) {
         info.outputs?.unshift('import * as enums from "./enums";');
         info.inputs?.unshift('import * as enums from "./enums";');
     } catch (error) {
-        console.log(`${info.name} has no enums`);
+        // No enums exist for module
     }
 
     if (info.inputs) {
         const inputFileContent = info.inputs.join("\n");
         indexContent.push('export * as inputs from "./input";');
-        writeFile(`${typesFolder}/input.ts`, inputFileContent);
+        Bun.write(`${typesFolder}/input.ts`, inputFileContent);
     }
 
     if (info.outputs) {
         const outputFileContent = info.outputs.join("\n");
         indexContent.push('export * as outputs from "./output";');
-        writeFile(`${typesFolder}/output.ts`, outputFileContent);
+        Bun.write(`${typesFolder}/output.ts`, outputFileContent);
     }
 
-    await writeFile(`${typesFolder}/index.ts`, indexContent.join("\n"));
+    await Bun.write(`${typesFolder}/index.ts`, indexContent.join("\n"));
 }
 
 async function writeSubModuleTypeFiles(parentName: string, info: ModuleTypeFiles) {
@@ -162,29 +162,27 @@ async function writeSubModuleTypeFiles(parentName: string, info: ModuleTypeFiles
         info.outputs?.unshift('import * as enums from "./enums";');
         info.inputs?.unshift('import * as enums from "./enums";');
     } catch (error) {
-        console.log(`${parentName}/${info.name} has no enums`);
+        // No enums exist for sub module
     }
 
     if (info.inputs) {
         const inputFileContent = info.inputs.join("\n");
         indexContent.push('export * as inputs from "./input";');
-        writeFile(`${typesFolder}/input.ts`, inputFileContent);
+        Bun.write(`${typesFolder}/input.ts`, inputFileContent);
     }
 
     if (info.outputs) {
         const outputFileContent = info.outputs.join("\n");
         indexContent.push('export * as outputs from "./output";');
-        writeFile(`${typesFolder}/output.ts`, outputFileContent);
+        Bun.write(`${typesFolder}/output.ts`, outputFileContent);
     }
 
-    await writeFile(`${typesFolder}/index.ts`, indexContent.join("\n"));
+    await Bun.write(`${typesFolder}/index.ts`, indexContent.join("\n"));
 }
 
 export async function createModuleTypeFiles(): Promise<void> {
     const inputsFile = `${AZURE_PATH}/types/input.ts`;
     const outputsFile = `${AZURE_PATH}/types/output.ts`;
-
-    console.log("Splitting original input/output type files");
 
     const inputs = await splitTypeFile(inputsFile);
     const outputs = await splitTypeFile(outputsFile);
@@ -198,21 +196,18 @@ export async function createModuleTypeFiles(): Promise<void> {
         new Map(),
     );
 
-    const keySet = new Set([
-        ...Object.keys(inputs),
-        ...Object.keys(outputs),
-        ...Object.keys(enumFolderMap),
-    ]);
-    const keys = Array.from(keySet);
+    const keys = [
+        ...new Set<string>([...inputs.keys(), ...outputs.keys(), ...enumFolderMap.keys()]),
+    ];
 
     const writeTasks = keys.map<Promise<void>>(async (key) => {
         const input = inputs.get(key);
         const output = outputs.get(key);
 
-        const subVersions = new Set<string>(
-            ...Object.keys(input?.subVersions ?? {}),
-            ...Object.keys(output?.subVersions ?? {}),
-        );
+        const subVersions = new Set<string>([
+            ...(input?.subVersions.keys() ?? []),
+            ...(output?.subVersions.keys() ?? []),
+        ]);
 
         const tasks: Promise<void>[] = [
             writeModuleTypeFiles({
@@ -221,7 +216,7 @@ export async function createModuleTypeFiles(): Promise<void> {
                 outputs: output?.lines,
             }),
         ];
-        for (const subVersion of subVersions.values()) {
+        for (const subVersion of subVersions.keys()) {
             tasks.push(
                 writeSubModuleTypeFiles(key, {
                     name: subVersion,
@@ -235,6 +230,4 @@ export async function createModuleTypeFiles(): Promise<void> {
     });
 
     await Promise.all(writeTasks);
-
-    console.log("Successfully split original input/output type files");
 }

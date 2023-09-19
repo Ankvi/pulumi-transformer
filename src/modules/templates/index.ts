@@ -1,5 +1,5 @@
 import { Octokit } from "@octokit/rest";
-import { cp, readFile } from "node:fs/promises";
+import { cp } from "node:fs/promises";
 import { PackageJson } from "./types";
 import { MODULE_PREFIX } from "../../constants";
 
@@ -104,9 +104,7 @@ class TemplateLoader {
 
     private async getReadme(name: string): Promise<string> {
         if (!this.readmeTemplate) {
-            this.readmeTemplate = await readFile(`${import.meta.dir}/README.template.md`, {
-                encoding: "utf-8",
-            });
+            this.readmeTemplate = await Bun.file(`${import.meta.dir}/README.template.md`).text();
         }
 
         return this.readmeTemplate.replace("${NAME}", name);
