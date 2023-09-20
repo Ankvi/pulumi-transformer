@@ -17,7 +17,7 @@ class Config {
 
     constructor() {
         this.octokit = new Octokit();
-        this.outputPath = `${import.meta.dir}/../output`;
+        this.outputPath = `${import.meta.dir}/../output/packages`;
     }
 
     public async initialize(options: ConfigOptions) {

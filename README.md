@@ -98,14 +98,16 @@ packages/
     aad/
         v20221201/
             index.ts
+            types/
+                index.ts
+                input.ts
+                output.ts
+                enums.ts
         package.json
         index.ts
         types/
             index.ts
             input.ts
             output.ts
-            enums/
-                index.ts
-                v20221201/
-                    index.ts
+            enums.ts
 ```
