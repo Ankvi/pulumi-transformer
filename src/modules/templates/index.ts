@@ -85,7 +85,7 @@ class TemplateLoader {
             scripts: {
                 build: "tsc",
                 lint: "tsc --noEmit",
-                prepublish: "pnpm run build",
+                prepublish: "test -f index.js",
             },
         };
 
@@ -113,18 +113,7 @@ class TemplateLoader {
     private getTsConfig(): string {
         return JSON.stringify(
             {
-                compilerOptions: {
-                    target: "ES2016",
-                    module: "CommonJS",
-                    skipLibCheck: true,
-                    skipDefaultLibCheck: true,
-                    moduleResolution: "node",
-                    declaration: true,
-                    inlineSourceMap: true,
-                    experimentalDecorators: true,
-                    forceConsistentCasingInFileNames: true,
-                    strict: true,
-                },
+                extends: "../../tsconfig",
                 include: ["**/*.ts"],
                 exclude: ["node_modules", "**/*.d.ts"],
             },
