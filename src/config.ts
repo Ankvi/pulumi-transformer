@@ -23,7 +23,7 @@ class Config {
     public async initialize(options: ConfigOptions) {
         const { outputVersion, outputPath, azureNativeVersion } = options;
 
-        config.setAzureNativeVersion(azureNativeVersion);
+        await config.setAzureNativeVersion(azureNativeVersion);
 
         config.setOutputPath(outputPath);
 
