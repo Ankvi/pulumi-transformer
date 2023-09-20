@@ -4,3 +4,4 @@ output/**/*.js
 !output/**/scripts/*.js
 output/**/*.d.ts
 .turbo
+*.cache

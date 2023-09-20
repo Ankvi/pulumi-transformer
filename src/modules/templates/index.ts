@@ -14,16 +14,8 @@ export interface IModule {
     outputPath: string;
 }
 
-const versionCacheFilePath = `${import.meta.dir}/pulumi-azure-native-version.txt`;
-
 class TemplateLoader {
     private readmeTemplate?: string;
-
-    private octokit: Octokit;
-
-    constructor() {
-        this.octokit = new Octokit();
-    }
 
     private getPackageJson(name: string, withCoreDeps = false): string {
         const template: PackageJson = {

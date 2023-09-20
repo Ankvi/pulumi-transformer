@@ -1,10 +1,14 @@
 import { ConfigOptions, config } from "./config";
 import { cleanOutputPaths, createCorePackage, createModules, getOutputModules } from "./modules";
-
 import { createModuleTypeFiles } from "./type-creating";
 
-export async function build(options: ConfigOptions) {
-    console.log(options);
+export type ActionOptions = {
+    verbose?: boolean;
+};
+
+type BuildOptions = ActionOptions & ConfigOptions;
+
+export async function build(options: BuildOptions) {
     await config.initialize(options);
 
     console.log("Removing old output");
@@ -25,7 +29,7 @@ export type PublishOptions = {
     logErrors?: boolean;
 };
 
-export async function listModuleNames() {
+export async function listModuleNames(options: ActionOptions) {
     const modules = await getOutputModules();
     console.log("Found modules:");
     console.log("==========================================");

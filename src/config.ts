@@ -1,6 +1,6 @@
 import { Octokit } from "@octokit/rest";
 
-const versionCacheFilePath = `${import.meta.dir}/pulumi-azure-native-version.txt`;
+const versionCacheFilePath = `${import.meta.dir}/pulumi-azure-native-version.cache`;
 
 export interface ConfigOptions {
     azureNativeVersion?: string;
