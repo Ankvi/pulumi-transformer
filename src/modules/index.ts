@@ -2,6 +2,7 @@ import { cp, mkdir, readdir, rm } from "node:fs/promises";
 import { AZURE_PATH } from "../constants";
 import { Module } from "./module";
 import { loader } from "./templates";
+import { config } from "../config";
 
 export async function cleanOutputPaths() {
     const modules = await getOutputModules();
@@ -32,9 +33,18 @@ export async function createCorePackage() {
     );
     const formattedIndexFile = indexFile.replace(exports, "");
 
+    // This one is really ugly, but it allows me to patch for undiscovered bugs while not
+    // messing with what version the runtime uses.
+    // TODO: Remove this once things are stable.
+    const utilities = await Bun.file(`${AZURE_PATH}/utilities.ts`).text();
+    const formattedUtilities = utilities.replaceAll(
+        "require('./package.json').version;",
+        `"${config.getAzureNativeVersion()}";`,
+    );
+
     await Promise.all([
         Bun.write(`${coreModule.outputPath}/index.ts`, formattedIndexFile),
-        cp(`${AZURE_PATH}/utilities.ts`, `${coreModule.outputPath}/utilities.ts`),
+        Bun.write(`${coreModule.outputPath}/utilities.ts`, formattedUtilities),
         cp(`${AZURE_PATH}/provider.ts`, `${coreModule.outputPath}/provider.ts`),
     ]);
 }

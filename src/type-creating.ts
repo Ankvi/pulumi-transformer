@@ -2,8 +2,9 @@ import { mkdir } from "node:fs/promises";
 import { createReadStream } from "node:fs";
 import { createInterface } from "node:readline/promises";
 import * as log from "loglevel";
-import { AZURE_PATH, PULUMI_IMPORT_STATEMENT, getOutputPath } from "./constants";
+import { AZURE_PATH, PULUMI_IMPORT_STATEMENT } from "./constants";
 import { getFolderNames } from "./folders";
+import { config } from "./config";
 
 log.setLevel("debug");
 
@@ -180,7 +181,7 @@ export async function createModuleTypeFiles(): Promise<void> {
         const tasks: Promise<void>[] = [
             writeModuleTypeFiles({
                 enumSourcePath: `${AZURE_PATH}/types/enums/${key}/index.ts`,
-                outputTypesPath: `${getOutputPath()}/${key}/types`,
+                outputTypesPath: `${config.getOutputPath()}/${key}/types`,
                 inputs: input?.lines,
                 outputs: output?.lines,
             }),
@@ -189,7 +190,7 @@ export async function createModuleTypeFiles(): Promise<void> {
             tasks.push(
                 writeModuleTypeFiles({
                     enumSourcePath: `${AZURE_PATH}/types/enums/${key}/${subVersion}/index.ts`,
-                    outputTypesPath: `${getOutputPath()}/${key}/${subVersion}/types`,
+                    outputTypesPath: `${config.getOutputPath()}/${key}/${subVersion}/types`,
                     inputs: input?.subVersions?.get(subVersion)?.lines,
                     outputs: output?.subVersions?.get(subVersion)?.lines,
                 }),

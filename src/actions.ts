@@ -1,15 +1,11 @@
+import { ConfigOptions, config } from "./config";
 import { cleanOutputPaths, createCorePackage, createModules, getOutputModules } from "./modules";
 
 import { createModuleTypeFiles } from "./type-creating";
 
-type BuildOptions = {
-    output?: string;
-};
-
-export async function build(options: BuildOptions) {
-    if (options.output) {
-        process.env.OUTPUT_PATH = options.output;
-    }
+export async function build(options: ConfigOptions) {
+    console.log(options);
+    await config.initialize(options);
 
     console.log("Removing old output");
     await cleanOutputPaths();

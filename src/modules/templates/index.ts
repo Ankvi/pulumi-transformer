@@ -2,6 +2,7 @@ import { Octokit } from "@octokit/rest";
 import { cp } from "node:fs/promises";
 import { PackageJson } from "./types";
 import { MODULE_PREFIX } from "../../constants";
+import { config } from "../../config";
 
 type WriteOptions = {
     subModule: IModule;
@@ -17,54 +18,17 @@ const versionCacheFilePath = `${import.meta.dir}/pulumi-azure-native-version.txt
 
 class TemplateLoader {
     private readmeTemplate?: string;
-    private version: Promise<string>;
 
     private octokit: Octokit;
 
     constructor() {
         this.octokit = new Octokit();
-
-        this.version = this.getVersion();
     }
 
-    private async getVersion(): Promise<string> {
-        try {
-            const cache = await Bun.file(versionCacheFilePath).text();
-
-            const cachedVersion = cache.trim();
-            console.debug(`Found cached @pulumi/pulumi-azure-native version: '${cachedVersion}'`);
-            return cachedVersion;
-        } catch (error) {
-            console.debug("Retrieving @pulumi/pulumi-azure-native version from GitHub");
-        }
-
-        const releasesResponse = await this.octokit.rest.repos.listReleases({
-            owner: "pulumi",
-            repo: "pulumi-azure-native",
-            per_page: 1,
-        });
-
-        const releases = releasesResponse.data ?? [];
-
-        if (!releases[0]?.name) {
-            throw new Error("No releases found. Unable to set version");
-        }
-
-        const version = releases[0].name;
-
-        console.debug(`Found @pulumi/azure-native version: '${version}'`);
-
-        await Bun.write(versionCacheFilePath, version);
-
-        return version;
-    }
-
-    private async getPackageJson(name: string, withCoreDeps = false): Promise<string> {
-        const version = await this.version;
-
+    private getPackageJson(name: string, withCoreDeps = false): string {
         const template: PackageJson = {
             name: `${MODULE_PREFIX}${name}`,
-            version: version.startsWith("v") ? version.substring(1) : version,
+            version: config.getOutputVersion(),
             description: `Pulumi Azure Native package for ${name}`,
             keywords: ["pulumi", "azure", "azure-native", "category/cloud", "kind/native"],
             homepage: "https://pulumi.com",
@@ -92,7 +56,7 @@ class TemplateLoader {
         if (name === "core") {
             template.scripts[
                 "install"
-            ] = `node scripts/install-pulumi-plugin.js resource azure-native ${version}`;
+            ] = `node scripts/install-pulumi-plugin.js resource azure-native ${config.getAzureNativeVersion()}`;
         }
 
         if (withCoreDeps) {
@@ -125,7 +89,7 @@ class TemplateLoader {
     public async writeTemplateToFolder({ subModule, withCoreDeps }: WriteOptions): Promise<void> {
         const folder = subModule.outputPath;
 
-        const packageJson = await this.getPackageJson(subModule.name, withCoreDeps);
+        const packageJson = this.getPackageJson(subModule.name, withCoreDeps);
         const readme = await this.getReadme(subModule.name);
 
         await Promise.all([

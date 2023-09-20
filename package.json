@@ -10,7 +10,6 @@
     "loglevel": "^1.8.1"
   },
   "devDependencies": {
-    "@types/node": "^20.5.9",
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
     "bun-types": "^1.0.2",

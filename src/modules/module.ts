@@ -1,7 +1,8 @@
 import { Dirent } from "node:fs";
 import { mkdir, readdir } from "node:fs/promises";
-import { AZURE_PATH, MODULE_PREFIX, getOutputPath } from "../constants";
+import { AZURE_PATH, MODULE_PREFIX } from "../constants";
 import { IModule } from "./templates";
+import { config } from "../config";
 
 const commonModuleImports = [
     'import * as pulumi from "@pulumi/pulumi";',
@@ -15,7 +16,7 @@ export class Module implements IModule {
 
     constructor(public readonly name: string) {
         this.path = `${AZURE_PATH}/${this.name}`;
-        this.outputPath = `${getOutputPath()}/${this.name}`;
+        this.outputPath = `${config.getOutputPath()}/${this.name}`;
         this.fullName = `${MODULE_PREFIX}${this.name}`;
     }
 
