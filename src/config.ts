@@ -67,7 +67,7 @@ class Config {
 
         const releaseVersion = releases[0].name;
 
-        console.debug(`Found @pulumi/azure-native version: '${version}'`);
+        console.debug(`Found @pulumi/azure-native version: '${releaseVersion}'`);
 
         await Bun.write(versionCacheFilePath, releaseVersion);
 
