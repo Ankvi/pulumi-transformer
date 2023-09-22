@@ -1,4 +1,5 @@
 import { Octokit } from "@octokit/rest";
+import log from "loglevel";
 
 const versionCacheFilePath = `${import.meta.dir}/pulumi-azure-native-version.cache`;
 
@@ -21,6 +22,7 @@ class Config {
     }
 
     public async initialize(options: ConfigOptions) {
+        log.debug("Initializing configuration", options);
         const { outputVersion, outputPath, azureNativeVersion } = options;
 
         await config.setAzureNativeVersion(azureNativeVersion);
@@ -45,12 +47,12 @@ class Config {
             const cache = await Bun.file(versionCacheFilePath).text();
 
             const cachedVersion = cache.trim();
-            console.debug(`Found cached @pulumi/pulumi-azure-native version: '${cachedVersion}'`);
+            log.debug(`Found cached @pulumi/pulumi-azure-native version: '${cachedVersion}'`);
 
             this.azureNativeVersion = cachedVersion;
             return;
         } catch (error) {
-            console.debug("Retrieving @pulumi/pulumi-azure-native version from GitHub");
+            log.debug("Retrieving @pulumi/pulumi-azure-native version from GitHub");
         }
 
         const releasesResponse = await this.octokit.rest.repos.listReleases({

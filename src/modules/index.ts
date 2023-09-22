@@ -5,8 +5,7 @@ import { loader } from "./templates";
 import { config } from "../config";
 
 export async function cleanOutputPaths() {
-    const modules = await getOutputModules();
-    await Promise.all(modules.map((m) => rm(m.outputPath, { recursive: true })));
+    await rm(config.getOutputPath(), { recursive: true });
 }
 
 export async function createCorePackage() {
