@@ -7,12 +7,14 @@ export interface ConfigOptions {
     azureNativeVersion?: string;
     outputVersion?: string;
     outputPath?: string;
+    cache: boolean;
 }
 
 class Config {
     private azureNativeVersion?: string;
     private outputVersion?: string;
     private outputPath: string;
+    private useCache: boolean = true;
 
     private octokit: Octokit;
 
@@ -23,7 +25,8 @@ class Config {
 
     public async initialize(options: ConfigOptions) {
         log.debug("Initializing configuration", options);
-        const { outputVersion, outputPath, azureNativeVersion } = options;
+        const { outputVersion, outputPath, azureNativeVersion, cache } = options;
+        this.useCache = cache;
 
         await config.setAzureNativeVersion(azureNativeVersion);
 
@@ -44,13 +47,15 @@ class Config {
         }
 
         try {
-            const cache = await Bun.file(versionCacheFilePath).text();
+            if (this.useCache) {
+                const cache = await Bun.file(versionCacheFilePath).text();
 
-            const cachedVersion = cache.trim();
-            log.debug(`Found cached @pulumi/pulumi-azure-native version: '${cachedVersion}'`);
+                const cachedVersion = cache.trim();
+                log.debug(`Found cached @pulumi/pulumi-azure-native version: '${cachedVersion}'`);
 
-            this.azureNativeVersion = cachedVersion;
-            return;
+                this.azureNativeVersion = cachedVersion;
+                return;
+            }
         } catch (error) {
             log.debug("Retrieving @pulumi/pulumi-azure-native version from GitHub");
         }
@@ -69,7 +74,7 @@ class Config {
 
         const releaseVersion = releases[0].name;
 
-        console.debug(`Found @pulumi/azure-native version: '${releaseVersion}'`);
+        log.info(`Found @pulumi/azure-native version: '${releaseVersion}'`);
 
         await Bun.write(versionCacheFilePath, releaseVersion);
 

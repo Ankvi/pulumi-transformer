@@ -119,7 +119,11 @@ type ModuleTypeFiles = {
 };
 
 async function writeModuleTypeFiles(info: ModuleTypeFiles) {
-    await mkdir(info.outputTypesPath, { recursive: true });
+    try {
+        await mkdir(info.outputTypesPath, { recursive: true });
+    } catch (e) {
+        // Folder already exists
+    }
 
     const indexContent: string[] = [];
 

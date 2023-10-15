@@ -17,6 +17,7 @@ program
         "Version of @pulumi/azure-native to use. E.g. v2.8.0",
     )
     .option("--output-version <output-version>", "Override output package version. E.g. 2.8.1")
+    .option("--no-cache", "Do not use cache for azure native version")
     .action(actions.build);
 
 program.command("list-module-names").action(actions.listModuleNames);

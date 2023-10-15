@@ -3,6 +3,7 @@ import { cp } from "node:fs/promises";
 import { PackageJson } from "./types";
 import { MODULE_PREFIX } from "../../constants";
 import { config } from "../../config";
+import log from "loglevel";
 
 type WriteOptions = {
     subModule: IModule;
@@ -41,7 +42,7 @@ class TemplateLoader {
             scripts: {
                 build: "tsc",
                 lint: "tsc --noEmit",
-                prepublish: "test -f index.js",
+                prepublishOnly: "./prepublish.sh",
             },
         };
 
@@ -79,6 +80,8 @@ class TemplateLoader {
     }
 
     public async writeTemplateToFolder({ subModule, withCoreDeps }: WriteOptions): Promise<void> {
+        log.debug(`${subModule.name}: Writing template files`);
+
         const folder = subModule.outputPath;
 
         const packageJson = this.getPackageJson(subModule.name, withCoreDeps);
@@ -89,7 +92,10 @@ class TemplateLoader {
             await Bun.write(`${folder}/README.md`, readme),
             await Bun.write(`${folder}/tsconfig.json`, this.getTsConfig()),
             await cp(`${import.meta.dir}/.npmignore`, `${folder}/.npmignore`),
+            await cp(`${import.meta.dir}/prepublish.sh`, `${folder}/prepublish.sh`),
         ]);
+
+        log.debug(`${subModule.name}: Writing template files -> SUCCESS`);
     }
 }
 
