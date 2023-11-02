@@ -129,6 +129,12 @@ async function writeModuleTypeFiles(info: ModuleTypeFiles) {
 
     try {
         const content = await Bun.file(info.enumSourcePath).text();
+        const startOfTypeExports = content.indexOf("export const");
+        if (startOfTypeExports < 0) {
+            throw new Error(
+                `This version of the module ${info.enumSourcePath} does not export any types. Skipping`,
+            );
+        }
         const formatted = content.substring(content.indexOf("export const "));
         await Bun.write(`${info.outputTypesPath}/enums.ts`, formatted);
 
