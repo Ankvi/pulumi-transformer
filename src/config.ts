@@ -1,13 +1,23 @@
 import { Octokit } from "@octokit/rest";
 import log from "loglevel";
+import { getLatestRelease } from "./github";
 
 const versionCacheFilePath = `${import.meta.dir}/pulumi-azure-native-version.cache`;
+
+export async function getCachedPulumiAzureNativeVersion() {
+    const cache = await Bun.file(versionCacheFilePath).text();
+
+    const cachedVersion = cache.trim();
+
+    return cachedVersion;
+}
 
 export interface ConfigOptions {
     azureNativeVersion?: string;
     outputVersion?: string;
     outputPath?: string;
     cache: boolean;
+    commit: boolean;
 }
 
 class Config {
@@ -16,10 +26,7 @@ class Config {
     private outputPath: string;
     private useCache: boolean = true;
 
-    private octokit: Octokit;
-
     constructor() {
-        this.octokit = new Octokit();
         this.outputPath = `${import.meta.dir}/../output/packages`;
     }
 
@@ -48,9 +55,8 @@ class Config {
 
         try {
             if (this.useCache) {
-                const cache = await Bun.file(versionCacheFilePath).text();
+                const cachedVersion = await getCachedPulumiAzureNativeVersion();
 
-                const cachedVersion = cache.trim();
                 log.debug(`Found cached @pulumi/pulumi-azure-native version: '${cachedVersion}'`);
 
                 this.azureNativeVersion = cachedVersion;
@@ -60,19 +66,12 @@ class Config {
             log.debug("Retrieving @pulumi/pulumi-azure-native version from GitHub");
         }
 
-        const releasesResponse = await this.octokit.rest.repos.listReleases({
-            owner: "pulumi",
-            repo: "pulumi-azure-native",
-            per_page: 1,
-        });
-
-        const releases = releasesResponse.data ?? [];
-
-        if (!releases[0]?.name) {
-            throw new Error("No releases found. Unable to set version");
+        const release = await getLatestRelease();
+        if (!release?.name) {
+            throw new Error("No releases found");
         }
 
-        const releaseVersion = releases[0].name;
+        const releaseVersion = release.name;
 
         log.info(`Found @pulumi/azure-native version: '${releaseVersion}'`);
 

@@ -24,6 +24,8 @@ jobs:
 
       - uses: ./.github/actions/setup-node
 
+      - uses: ./.github/actions/pulumi-azure-native-cache
+
       - name: Build packages
         run: |
           make output

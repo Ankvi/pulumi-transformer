@@ -1,0 +1,10 @@
+name: Pulumi Azure Native version cache
+description: Caches the pulumi azure native version uses when building
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/cache@v3
+      with:
+        path: src/pulumi-azure-native-version.cache
+        key: pulumi-azure-native-version

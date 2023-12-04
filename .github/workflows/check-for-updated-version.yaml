@@ -1,0 +1,24 @@
+name: Check for updated version
+
+on:
+  schedule:
+    - cron: "0 12 * * 1,5"
+
+jobs:
+  check-pulumi-repo-releases:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-node
+
+      - uses: ./.github/actions/pulumi-azure-native-cache
+
+      - id: version-check
+        continue-on-error: true
+        run: |
+          bun src/index.ts check-version
+
+      - if: failure()
+        run: |
+          bun src/index.ts build --commit --no-cache

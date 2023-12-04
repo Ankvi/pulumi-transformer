@@ -18,9 +18,12 @@ program
     )
     .option("--output-version <output-version>", "Override output package version. E.g. 2.8.1")
     .option("--no-cache", "Do not use cache for azure native version")
+    .option("--commit", "Commits and pushes the generated output")
     .action(actions.build);
 
 program.command("list-module-names").action(actions.listModuleNames);
+
+program.command("check-version").action(actions.checkVersion);
 
 program.hook("preAction", hooks.setVerbosityLevel);
 
