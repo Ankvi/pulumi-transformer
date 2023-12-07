@@ -22,6 +22,13 @@ jobs:
         run: |
           make check-version
 
+      - name: Setup PNPM for submodule
+        if: success()
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+
       - name: Build new version without cache and commit submodule
         run: |
           make output/update-and-commit
