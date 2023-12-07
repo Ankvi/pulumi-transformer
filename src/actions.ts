@@ -60,16 +60,20 @@ function commitOutput() {
 
     const outputBasePath = `${config.getOutputPath()}/..`;
 
+    console.log("Committing result to GitHub");
+    console.log("Current working directory:", outputBasePath);
+
+    const command = (args: string[]) => {
+        console.log(args.join(" "));
+        Bun.spawnSync(args, {
+            cwd: outputBasePath,
+        });
+    };
+
     try {
-        Bun.spawnSync(["pnpm", "install"], {
-            cwd: outputBasePath,
-        });
-        Bun.spawnSync(["git", "add", "-A"], {
-            cwd: outputBasePath,
-        });
-        Bun.spawnSync(["git", "commit", "-m", `Bumped to ${version}`], {
-            cwd: outputBasePath,
-        });
+        command(["pnpm", "install"]);
+        command(["git", "add", "-A"]);
+        command(["git", "commit", "-m", `Bumped to ${version}`]);
     } catch (err) {
         console.error(err);
         exit(1);
