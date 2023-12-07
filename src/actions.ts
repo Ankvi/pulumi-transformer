@@ -1,8 +1,7 @@
 import { exit } from "process";
-import { ConfigOptions, config, getCachedPulumiAzureNativeVersion } from "./config";
-import { getLatestRelease } from "./github";
+import { ConfigOptions, config } from "./config";
+import { getLatestBuildVersion, getLatestRelease } from "./github";
 import { cleanOutputPaths, createCorePackage, createModules, getOutputModules } from "./modules";
-import { PackageJson } from "./modules/templates/types";
 import { createModuleTypeFiles } from "./type-creating";
 
 export type ActionOptions = {
@@ -46,13 +45,14 @@ export async function listModuleNames(options: ActionOptions) {
 }
 
 export async function checkVersion() {
-    const cachedVersion = await getCachedPulumiAzureNativeVersion();
+    const latestBuild = await getLatestBuildVersion();
     const latestRelease = await getLatestRelease();
-    const latestVersion = latestRelease?.name ?? "";
-    if (latestVersion > cachedVersion) {
-        console.log(`A new version exists: ${latestVersion}`);
+    const latestVersion = latestRelease?.name?.substring(1) ?? "";
+    if (latestVersion <= latestBuild) {
+        console.log("No new version found");
         exit(-1);
     }
+    console.log(`A new version exists: ${latestVersion}`);
 }
 
 function commitOutput() {
