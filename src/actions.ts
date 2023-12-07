@@ -74,6 +74,7 @@ function commitOutput() {
         command(["pnpm", "install"]);
         command(["git", "add", "-A"]);
         command(["git", "commit", "-m", `Bumped to ${version}`]);
+        command(["git", "push"]);
     } catch (err) {
         console.error(err);
         exit(1);
