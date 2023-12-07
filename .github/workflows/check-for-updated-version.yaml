@@ -3,6 +3,7 @@ name: Update version if needed
 on:
   schedule:
     - cron: "0 12 * * 1,3,5"
+  workflow_dispatch:
 
 jobs:
   check-pulumi-repo-releases:
