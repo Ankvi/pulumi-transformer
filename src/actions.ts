@@ -3,6 +3,7 @@ import { ConfigOptions, config } from "./config";
 import { getLatestBuildVersion, getLatestRelease } from "./github";
 import { cleanOutputPaths, createCorePackage, createModules, getOutputModules } from "./modules";
 import { createModuleTypeFiles } from "./type-creating";
+import { resolve } from "path";
 
 export type ActionOptions = {
     verbose?: boolean;
@@ -58,7 +59,7 @@ export async function checkVersion() {
 function commitOutput() {
     const version = config.getOutputVersion();
 
-    const outputBasePath = `${config.getOutputPath()}/..`;
+    const outputBasePath = resolve(`${config.getOutputPath()}/..`);
 
     console.log("Committing result to GitHub");
     console.log("Current working directory:", outputBasePath);
