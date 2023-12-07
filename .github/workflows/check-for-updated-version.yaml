@@ -23,6 +23,5 @@ jobs:
           make check-version
 
       - name: Build new version without cache and commit submodule
-        if: failure()
         run: |
           make output/update-and-commit
