@@ -21,6 +21,11 @@ azure-native/pull: azure-native
 list-module-names: azure-native/pull  node_modules
 	bun src/index.ts list-module-names
 
+check-version: node_modules
+	bun src/index.ts check-version
+
 output: azure-native/pull node_modules
 	bun src/index.ts build
 
+output/update-and-commit: azure-native/pull node_modules
+	bun src/index.ts build --commit --no-cache

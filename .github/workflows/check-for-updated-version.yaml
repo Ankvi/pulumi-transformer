@@ -1,4 +1,4 @@
-name: Check for updated version
+name: Update version if needed
 
 on:
   schedule:
@@ -16,11 +16,12 @@ jobs:
 
       - uses: ./.github/actions/pulumi-azure-native-cache
 
-      - id: version-check
+      - name: Check if @pulumi/azure-native has been updated
         continue-on-error: true
         run: |
-          bun src/index.ts check-version
+          make check-version
 
-      - if: failure()
+      - name: Build new version without cache and commit submodule
+        if: failure()
         run: |
-          bun src/index.ts build --commit --no-cache
+          make output/update-and-commit
