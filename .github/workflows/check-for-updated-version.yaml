@@ -42,14 +42,15 @@ jobs:
 
       - name: Build new version without cache and commit submodule
         run: |
-          make output/update-and-commit
+          make output
+          # make output/update-and-commit
 
-      # - name: Commit and push
-      #   run: |
-      #     pnpm install
-      #     git config --global user.name "Andreas Kvist"
-      #     git config --global user.email "kvistcake@gmail.com"
-      #     git add -A
-      #     git commit -m "Bumped version"
-      #     git push
-      #   working-directory: output
+      - name: Commit and push
+        run: |
+          pnpm install
+          # git config --global user.name "Andreas Kvist"
+          # git config --global user.email "kvistcake@gmail.com"
+          git add -A
+          git commit -m "Bumped version"
+          git push
+        working-directory: output
