@@ -76,7 +76,7 @@ function commitOutput() {
         command(["git", "checkout", "-b", `bump/${version}`]);
         command(["git", "add", "-A"]);
         command(["git", "commit", "-m", `Bumped to ${version}`]);
-        command(["git", "push", "-u", `origin/bump/${version}`]);
+        command(["git", "push", "-u", "origin", `bump/${version}`]);
     } catch (err) {
         console.error(err);
         exit(1);
