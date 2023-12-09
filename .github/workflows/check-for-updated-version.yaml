@@ -44,6 +44,8 @@ jobs:
       - name: Commit and push
         run: |
           pnpm install
+          git config --global user.name "Andreas Kvist"
+          git config --global user.email "kvistcake@gmail.com"
           git add -A
           git commit -m "Bumped version"
           git push
