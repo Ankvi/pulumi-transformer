@@ -54,3 +54,5 @@ jobs:
           git commit -m "Bumped version"
           git push
         working-directory: output
+        env:
+          GITHUB_TOKEN: ${{ secrets.CONTENT_WRITE_GITHUB_TOKEN }}
