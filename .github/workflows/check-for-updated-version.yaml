@@ -16,6 +16,11 @@ jobs:
         with:
           submodules: true
 
+      - name: Checkout submodule to main
+        run: |
+          git checkout main
+        working-directory: output
+
       - uses: ./.github/actions/setup-node
 
       - uses: ./.github/actions/pulumi-azure-native-cache
@@ -34,4 +39,12 @@ jobs:
 
       - name: Build new version without cache and commit submodule
         run: |
-          make output/update-and-commit
+          make output
+
+      - name: Commit and push
+        run: |
+          pnpm install
+          git add -A
+          git commit -m "Bumped version"
+          git push
+        working-directory: output
