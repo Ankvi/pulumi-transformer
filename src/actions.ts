@@ -27,7 +27,7 @@ export async function build(options: BuildOptions) {
     await createModules();
 
     if (options.commit) {
-        commitOutput();
+        await commitOutput();
     }
 }
 
@@ -56,7 +56,7 @@ export async function checkVersion() {
     console.log(`A new version exists: ${latestVersion}`);
 }
 
-function commitOutput() {
+async function commitOutput() {
     const version = config.getOutputVersion();
 
     const outputBasePath = resolve(`${config.getOutputPath()}/..`);
@@ -64,19 +64,29 @@ function commitOutput() {
     console.log("Committing result to GitHub");
     console.log("Current working directory:", outputBasePath);
 
-    const command = (args: string[]) => {
+    const command = async (args: string[]) => {
         console.log(args.join(" "));
-        Bun.spawnSync(args, {
+        const proc = Bun.spawn(args, {
             cwd: outputBasePath,
+            stderr: "pipe",
         });
+
+        const errors = await Bun.readableStreamToText(proc.stderr);
+        if (errors) {
+            console.info(errors);
+        }
+
+        const response = await new Response(proc.stdout).text();
+        console.log(response);
     };
 
     try {
-        command(["pnpm", "install"]);
-        command(["git", "checkout", "-b", `bump/${version}`]);
-        command(["git", "add", "-A"]);
-        command(["git", "commit", "-m", `Bumped to ${version}`]);
-        command(["git", "push", "-u", "origin", `bump/${version}`]);
+        await command(["pnpm", "install"]);
+        await command(["git", "checkout", "main"]);
+        await command(["git", "pull"]);
+        await command(["git", "add", "-A"]);
+        await command(["git", "commit", "-m", `Bumped to ${version}`]);
+        await command(["git", "push", "origin", "main"]);
     } catch (err) {
         console.error(err);
         exit(1);

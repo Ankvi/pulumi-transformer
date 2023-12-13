@@ -53,7 +53,7 @@ class TemplateLoader {
         }
 
         if (withCoreDeps) {
-            template.dependencies[`${MODULE_PREFIX}core`] = "workspace:^"; //version;
+            template.dependencies[`${MODULE_PREFIX}core`] = "workspace:*"; //version;
         }
 
         return JSON.stringify(template, null, 4);
