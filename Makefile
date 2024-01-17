@@ -25,7 +25,7 @@ check-version: node_modules
 	bun src/index.ts check-version
 
 output: azure-native/pull node_modules
-	bun src/index.ts build
+	bun src/index.ts build --no-submodules
 
 output/update-and-commit: azure-native/pull node_modules
 	bun src/index.ts build --commit --no-cache

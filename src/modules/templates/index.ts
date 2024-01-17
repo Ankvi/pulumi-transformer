@@ -47,9 +47,8 @@ class TemplateLoader {
         };
 
         if (name === "core") {
-            template.scripts[
-                "install"
-            ] = `node scripts/install-pulumi-plugin.js resource azure-native ${config.getAzureNativeVersion()}`;
+            template.scripts["install"] =
+                `node scripts/install-pulumi-plugin.js resource azure-native ${config.getAzureNativeVersion()}`;
         }
 
         if (withCoreDeps) {

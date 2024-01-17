@@ -18,6 +18,7 @@ program
     )
     .option("--output-version <output-version>", "Override output package version. E.g. 2.8.1")
     .option("--no-cache", "Do not use cache for azure native version")
+    .option("--no-submodules", "Do not output the submodules (e.g. v20220101 or v20220101preview)")
     .option("--commit", "Commits and pushes the generated output")
     .action(actions.build);
 

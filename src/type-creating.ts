@@ -161,7 +161,7 @@ async function writeModuleTypeFiles(info: ModuleTypeFiles) {
     await Bun.write(`${info.outputTypesPath}/index.ts`, indexContent.join("\n"));
 }
 
-export async function createModuleTypeFiles(): Promise<void> {
+export async function createModuleTypeFiles(submodules = false): Promise<void> {
     const inputsFile = `${AZURE_PATH}/types/input.ts`;
     const outputsFile = `${AZURE_PATH}/types/output.ts`;
 
@@ -194,15 +194,17 @@ export async function createModuleTypeFiles(): Promise<void> {
                 outputs: output?.lines,
             }),
         ];
-        for (const subVersion of subVersions.keys()) {
-            tasks.push(
-                writeModuleTypeFiles({
-                    enumSourcePath: `${AZURE_PATH}/types/enums/${key}/${subVersion}/index.ts`,
-                    outputTypesPath: `${config.getOutputPath()}/${key}/${subVersion}/types`,
-                    inputs: input?.subVersions?.get(subVersion)?.lines,
-                    outputs: output?.subVersions?.get(subVersion)?.lines,
-                }),
-            );
+        if (submodules) {
+            for (const subVersion of subVersions.keys()) {
+                tasks.push(
+                    writeModuleTypeFiles({
+                        enumSourcePath: `${AZURE_PATH}/types/enums/${key}/${subVersion}/index.ts`,
+                        outputTypesPath: `${config.getOutputPath()}/${key}/${subVersion}/types`,
+                        inputs: input?.subVersions?.get(subVersion)?.lines,
+                        outputs: output?.subVersions?.get(subVersion)?.lines,
+                    }),
+                );
+            }
         }
 
         await Promise.all(tasks);

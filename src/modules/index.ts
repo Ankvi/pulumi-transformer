@@ -54,11 +54,11 @@ export async function createCorePackage() {
 
 const ignoredFolders = ["scripts", "types"];
 
-export async function createModules() {
+export async function createModules(submodules = false) {
     const modules = await getAzureModules();
 
     const buildTasks = modules.map(async (name) => {
-        const subModule = new Module(name);
+        const subModule = new Module(name, submodules);
         await subModule.copyFiles();
         await loader.writeTemplateToFolder({
             subModule,

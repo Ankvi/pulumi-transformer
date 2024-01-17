@@ -14,7 +14,10 @@ export class Module implements IModule {
     public readonly outputPath: string;
     public readonly fullName: `${typeof MODULE_PREFIX}${string}`;
 
-    constructor(public readonly name: string) {
+    constructor(
+        public readonly name: string,
+        private readonly includeSubmodules: boolean = false,
+    ) {
         this.path = `${AZURE_PATH}/${this.name}`;
         this.outputPath = `${config.getOutputPath()}/${this.name}`;
         this.fullName = `${MODULE_PREFIX}${this.name}`;
@@ -39,6 +42,9 @@ export class Module implements IModule {
             if (file.isFile()) {
                 await this.writeModuleFile(file);
             } else if (file.isDirectory()) {
+                if (!this.includeSubmodules) {
+                    continue;
+                }
                 await this.writeSubModuleFiles(file);
             } else {
                 throw new Error("Unknown file type: " + file.name);
@@ -56,6 +62,16 @@ export class Module implements IModule {
                 `export * from "../types/enums/${this.name}";`,
                 'export * from "./types/enums";',
             );
+
+            if (!this.includeSubmodules) {
+                const startOfSubmoduleExport = newContent.indexOf("// Export sub-modules");
+                const endOfSubModuleExport = newContent.indexOf("const _module");
+                const exports = newContent.substring(
+                    startOfSubmoduleExport,
+                    endOfSubModuleExport - 1,
+                );
+                newContent = newContent.replace(exports, "");
+            }
         }
 
         const imports = [...commonModuleImports];

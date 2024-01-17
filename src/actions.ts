@@ -9,7 +9,11 @@ export type ActionOptions = {
     verbose?: boolean;
 };
 
-type BuildOptions = ActionOptions & ConfigOptions;
+type BuildOptions = ActionOptions &
+    ConfigOptions & {
+        commit?: boolean;
+        submodules?: boolean;
+    };
 
 export async function build(options: BuildOptions) {
     await config.initialize(options);
@@ -18,13 +22,13 @@ export async function build(options: BuildOptions) {
     await cleanOutputPaths();
 
     console.log("Creating type files");
-    await createModuleTypeFiles();
+    await createModuleTypeFiles(options.submodules);
 
     console.log("Creating core module");
     await createCorePackage();
 
     console.log("Creating other modules");
-    await createModules();
+    await createModules(options.submodules);
 
     if (options.commit) {
         await commitOutput();

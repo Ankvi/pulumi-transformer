@@ -1,4 +1,3 @@
-import { Octokit } from "@octokit/rest";
 import log from "loglevel";
 import { getLatestRelease } from "./github";
 
@@ -17,7 +16,6 @@ export interface ConfigOptions {
     outputVersion?: string;
     outputPath?: string;
     cache: boolean;
-    commit: boolean;
 }
 
 class Config {
