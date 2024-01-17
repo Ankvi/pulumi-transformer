@@ -4,6 +4,18 @@ import { AZURE_PATH, MODULE_PREFIX } from "../constants";
 import { IModule } from "./templates";
 import { config } from "../config";
 
+// I hate these.
+// Matches the following:
+// // Export sub-modules:
+// ANYTHING
+// export {
+//     v20200101,
+//     v20220101preview,
+//     v20230101beta,
+// };
+const indexFileSubmoduleExportRegex =
+    /\/\/\sExport\ssub-modules:(.*\n)+export\s{\n(\s{4}v\d{8}[a-z]*,\n)+};/;
+
 const commonModuleImports = [
     'import * as pulumi from "@pulumi/pulumi";',
     `import * as utilities from "${MODULE_PREFIX}core/utilities";`,
@@ -58,20 +70,7 @@ export class Module implements IModule {
         let newContent = this.replaceCommonModuleFileContent(content);
 
         if (file.name === "index.ts") {
-            newContent = newContent.replace(
-                `export * from "../types/enums/${this.name}";`,
-                'export * from "./types/enums";',
-            );
-
-            if (!this.includeSubmodules) {
-                const startOfSubmoduleExport = newContent.indexOf("// Export sub-modules");
-                const endOfSubModuleExport = newContent.indexOf("const _module");
-                const exports = newContent.substring(
-                    startOfSubmoduleExport,
-                    endOfSubModuleExport - 1,
-                );
-                newContent = newContent.replace(exports, "");
-            }
+            newContent = this.replaceIndexContent(newContent);
         }
 
         const imports = [...commonModuleImports];
@@ -83,6 +82,8 @@ export class Module implements IModule {
         ) {
             imports.push('import * as types from "./types";');
         }
+
+        newContent = newContent.trim();
 
         await Bun.write(`${this.outputPath}/${file.name}`, `${imports.join("\n")}\n${newContent}`);
     }
@@ -108,6 +109,8 @@ export class Module implements IModule {
         ) {
             imports.push('import * as types from "./types";');
         }
+
+        newContent = newContent.trim();
 
         await Bun.write(
             `${this.outputPath}/${subFolder.name}/${file.name}`,
@@ -148,5 +151,36 @@ export class Module implements IModule {
                 .replaceAll(`outputs.${toBeReplaced}.`, "types.outputs.")
                 .trimStart()
         );
+    }
+
+    private replaceIndexContent(content: string): string {
+        const newContent = content.replace(
+            `export * from "../types/enums/${this.name}";`,
+            'export * from "./types/enums";',
+        );
+
+        if (this.includeSubmodules) {
+            return newContent;
+        }
+
+        const hasSubmodules = indexFileSubmoduleExportRegex.test(newContent);
+        if (!hasSubmodules) {
+            return newContent;
+        }
+
+        return newContent.replace(indexFileSubmoduleExportRegex, "");
+        // const startOfSubmoduleExport = newContent.indexOf("// Export sub-modules");
+        // if (startOfSubmoduleExport < 0) {
+        //     return newContent;
+        // }
+        //
+        // const startOfModuleDeclaration = newContent.indexOf("const _module");
+        // const endOfSubmoduleExport =
+        //     startOfModuleDeclaration > -1 ? startOfModuleDeclaration - 1 : newContent.length - 1;
+        //
+        // const exports = newContent.substring(startOfSubmoduleExport, endOfSubmoduleExport);
+        // newContent = newContent.replace(exports, "");
+
+        // return newContent;
     }
 }
