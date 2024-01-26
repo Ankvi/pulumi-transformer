@@ -146,19 +146,23 @@ async function writeModuleTypeFiles(info: ModuleTypeFiles) {
         log.debug(`${info.enumSourcePath} does not exist`);
     }
 
+    const jobs: Promise<unknown>[] = [];
+
     if (info.inputs) {
         const inputFileContent = info.inputs.join("\n");
         indexContent.push('export * as inputs from "./input";');
-        Bun.write(`${info.outputTypesPath}/input.ts`, inputFileContent);
+        jobs.push(Bun.write(`${info.outputTypesPath}/input.ts`, inputFileContent));
     }
 
     if (info.outputs) {
         const outputFileContent = info.outputs.join("\n");
         indexContent.push('export * as outputs from "./output";');
-        Bun.write(`${info.outputTypesPath}/output.ts`, outputFileContent);
+        jobs.push(Bun.write(`${info.outputTypesPath}/output.ts`, outputFileContent));
     }
 
-    await Bun.write(`${info.outputTypesPath}/index.ts`, indexContent.join("\n"));
+    jobs.push(Bun.write(`${info.outputTypesPath}/index.ts`, indexContent.join("\n")));
+
+    await Promise.all(jobs);
 }
 
 export async function createModuleTypeFiles(submodules = false): Promise<void> {
