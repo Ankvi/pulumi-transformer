@@ -2,7 +2,7 @@ import { exit } from "process";
 import { ConfigOptions, config } from "./config";
 import { getLatestBuildVersion, getLatestRelease } from "./github";
 import { cleanOutputPaths, createCorePackage, createModules, getOutputModules } from "./modules";
-import { createModuleTypeFiles } from "./type-creating";
+import { createModuleTypeFiles, createSubModuleTypeFiles } from "./type-creating";
 import { resolve } from "path";
 
 export type ActionOptions = {
@@ -22,7 +22,12 @@ export async function build(options: BuildOptions) {
     await cleanOutputPaths();
 
     console.log("Creating type files");
-    await createModuleTypeFiles(options.submodules);
+    await createModuleTypeFiles();
+
+    if (options.submodules) {
+        console.log("Creating submodule files");
+        await createSubModuleTypeFiles();
+    }
 
     console.log("Creating core module");
     await createCorePackage();

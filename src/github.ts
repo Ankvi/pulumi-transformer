@@ -19,6 +19,6 @@ export async function getLatestBuildVersion(): Promise<string> {
     const response = await fetch(
         "https://raw.githubusercontent.com/Ankvi/pulumi-azure-native/main/packages/aad/package.json",
     );
-    const pkg = await response.json<PackageJson>();
+    const pkg = (await response.json()) as PackageJson;
     return pkg.version;
 }

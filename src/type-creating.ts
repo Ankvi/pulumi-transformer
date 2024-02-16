@@ -16,16 +16,23 @@ type TypesInfo = SubModuleTypeInfo & {
 
 type SplitTypesResult = Map<string, TypesInfo>;
 
+const moduleTypeStart = "export namespace ";
+const moduleTypeEnd = "}";
+
+const subModuleTypeStart = "    export namespace v";
+const subModuleTypeEnd = "    }";
+
+const splitFiles = new Map<string, Promise<SplitTypesResult>>();
+
 function splitTypeFile(filePath: string): Promise<SplitTypesResult> {
+    const cache = splitFiles.get(filePath);
+    if (cache) {
+        return cache;
+    }
+
     const inputs = filePath.endsWith("input.ts");
 
-    const moduleTypeStart = "export namespace ";
-    const moduleTypeEnd = "}";
-
-    const subModuleTypeStart = "    export namespace v";
-    const subModuleTypeEnd = "    }";
-
-    return new Promise((resolve) => {
+    const job = new Promise<SplitTypesResult>((resolve) => {
         const file = createInterface({
             input: createReadStream(filePath),
         });
@@ -109,6 +116,9 @@ function splitTypeFile(filePath: string): Promise<SplitTypesResult> {
             resolve(moduleTypes);
         });
     });
+
+    splitFiles.set(filePath, job);
+    return job;
 }
 
 type ModuleTypeFiles = {
@@ -165,7 +175,13 @@ async function writeModuleTypeFiles(info: ModuleTypeFiles) {
     await Promise.all(jobs);
 }
 
-export async function createModuleTypeFiles(submodules = false): Promise<void> {
+type ModuleTypes = {
+    inputs: SplitTypesResult;
+    outputs: SplitTypesResult;
+    keys: string[];
+};
+
+async function getTypeFiles(): Promise<ModuleTypes> {
     const inputsFile = `${AZURE_PATH}/types/input.ts`;
     const outputsFile = `${AZURE_PATH}/types/output.ts`;
 
@@ -177,7 +193,39 @@ export async function createModuleTypeFiles(submodules = false): Promise<void> {
 
     const keys = [...new Set<string>([...inputs.keys(), ...outputs.keys(), ...enumFolders])];
 
+    return {
+        inputs,
+        outputs,
+        keys,
+    };
+}
+
+export async function createModuleTypeFiles(): Promise<void> {
+    const { inputs, outputs, keys } = await getTypeFiles();
+
     log.info("Creating new types folders");
+
+    const writeTasks = keys.map<Promise<void>>(async (key) => {
+        const input = inputs.get(key);
+        const output = outputs.get(key);
+
+        const tasks: Promise<void>[] = [
+            writeModuleTypeFiles({
+                enumSourcePath: `${AZURE_PATH}/types/enums/${key}/index.ts`,
+                outputTypesPath: `${config.getOutputPath()}/${key}/types`,
+                inputs: input?.lines,
+                outputs: output?.lines,
+            }),
+        ];
+
+        await Promise.all(tasks);
+    });
+
+    await Promise.all(writeTasks);
+}
+
+export async function createSubModuleTypeFiles(): Promise<void> {
+    const { inputs, outputs, keys } = await getTypeFiles();
 
     const writeTasks = keys.map<Promise<void>>(async (key) => {
         const input = inputs.get(key);
@@ -190,28 +238,16 @@ export async function createModuleTypeFiles(submodules = false): Promise<void> {
             ...subVersionEnumFolders,
         ]);
 
-        const tasks: Promise<void>[] = [
-            writeModuleTypeFiles({
-                enumSourcePath: `${AZURE_PATH}/types/enums/${key}/index.ts`,
-                outputTypesPath: `${config.getOutputPath()}/${key}/types`,
-                inputs: input?.lines,
-                outputs: output?.lines,
-            }),
-        ];
-        if (submodules) {
-            for (const subVersion of subVersions.keys()) {
-                tasks.push(
-                    writeModuleTypeFiles({
-                        enumSourcePath: `${AZURE_PATH}/types/enums/${key}/${subVersion}/index.ts`,
-                        outputTypesPath: `${config.getOutputPath()}/${key}/${subVersion}/types`,
-                        inputs: input?.subVersions?.get(subVersion)?.lines,
-                        outputs: output?.subVersions?.get(subVersion)?.lines,
-                    }),
-                );
-            }
-        }
-
-        await Promise.all(tasks);
+        await Promise.all(
+            Object.keys(subVersions).map((subVersion) =>
+                writeModuleTypeFiles({
+                    enumSourcePath: `${AZURE_PATH}/types/enums/${key}/${subVersion}/index.ts`,
+                    outputTypesPath: `${config.getOutputPath()}/${key}/${subVersion}/types`,
+                    inputs: input?.subVersions?.get(subVersion)?.lines,
+                    outputs: output?.subVersions?.get(subVersion)?.lines,
+                }),
+            ),
+        );
     });
 
     await Promise.all(writeTasks);
