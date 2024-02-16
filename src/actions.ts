@@ -4,6 +4,7 @@ import { getLatestBuildVersion, getLatestRelease } from "./github";
 import { cleanOutputPaths, createCorePackage, createModules, getOutputModules } from "./modules";
 import { createModuleTypeFiles, createSubModuleTypeFiles } from "./type-creating";
 import { resolve } from "path";
+import { writeChangelogToOutput } from "./changelog";
 
 export type ActionOptions = {
     verbose?: boolean;
@@ -34,6 +35,8 @@ export async function build(options: BuildOptions) {
 
     console.log("Creating other modules");
     await createModules(options.submodules);
+
+    await writeChangelogToOutput();
 
     if (options.commit) {
         await commitOutput();

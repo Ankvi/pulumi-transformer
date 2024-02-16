@@ -2,17 +2,29 @@ import { Octokit } from "@octokit/rest";
 import { PackageJson } from "./modules/templates/types";
 
 const octokit = new Octokit();
+type Release = Awaited<ReturnType<(typeof octokit)["rest"]["repos"]["getLatestRelease"]>>["data"];
+
+let latestRelease: Promise<Release> | null = null;
 
 export async function getLatestRelease() {
-    const releasesResponse = await octokit.rest.repos.listReleases({
-        owner: "pulumi",
-        repo: "pulumi-azure-native",
-        per_page: 1,
-    });
+    if (latestRelease) {
+        return latestRelease;
+    }
 
-    const releases = releasesResponse.data ?? [];
+    latestRelease = octokit.rest.repos
+        .getLatestRelease({
+            owner: "pulumi",
+            repo: "pulumi-azure-native",
+            per_page: 1,
+        })
+        .then((response) => response.data);
 
-    return releases[0];
+    return latestRelease;
+}
+
+export async function getLatestReleaseChangelog() {
+    const latestRelease = await getLatestRelease();
+    return latestRelease.body;
 }
 
 export async function getLatestBuildVersion(): Promise<string> {

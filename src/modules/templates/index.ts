@@ -1,9 +1,9 @@
-import { Octokit } from "@octokit/rest";
 import { cp } from "node:fs/promises";
 import { PackageJson } from "./types";
 import { MODULE_PREFIX } from "../../constants";
 import { config } from "../../config";
 import log from "loglevel";
+import { getLatestReleaseChangelog } from "../../github";
 
 type WriteOptions = {
     subModule: IModule;
@@ -86,13 +86,15 @@ class TemplateLoader {
         const packageJson = this.getPackageJson(subModule.name, withCoreDeps);
         const readme = await this.getReadme(subModule.name);
 
-        await Promise.all([
-            await Bun.write(`${folder}/package.json`, packageJson),
-            await Bun.write(`${folder}/README.md`, readme),
-            await Bun.write(`${folder}/tsconfig.json`, this.getTsConfig()),
-            await cp(`${import.meta.dir}/.npmignore`, `${folder}/.npmignore`),
-            await cp(`${import.meta.dir}/prepublish.sh`, `${folder}/prepublish.sh`),
-        ]);
+        const tasks = [
+            Bun.write(`${folder}/package.json`, packageJson),
+            Bun.write(`${folder}/README.md`, readme),
+            Bun.write(`${folder}/tsconfig.json`, this.getTsConfig()),
+            cp(`${import.meta.dir}/.npmignore`, `${folder}/.npmignore`),
+            cp(`${import.meta.dir}/prepublish.sh`, `${folder}/prepublish.sh`),
+        ];
+
+        await Promise.all(tasks);
 
         log.debug(`${subModule.name}: Writing template files -> SUCCESS`);
     }
