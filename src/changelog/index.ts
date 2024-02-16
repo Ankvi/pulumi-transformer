@@ -2,8 +2,13 @@ import { getLatestReleaseChangelog } from "../github";
 import { config } from "../config";
 import { resolve } from "path";
 
-export async function writeChangelogToOutput() {
+async function getChangelog() {
     const changelog = await getLatestReleaseChangelog();
+    return ["# CHANGELOG", "", changelog].join("\n");
+}
+
+export async function writeChangelogToOutput() {
+    const changelog = await getChangelog();
     const releaseTag = config.getAzureNativeVersion();
     const outputChangelog = resolve(`${config.getOutputPath()}/../CHANGELOG.md`);
     if (changelog) {
