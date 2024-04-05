@@ -1,3 +1,4 @@
+import { $ } from "bun";
 import { exit } from "process";
 import { ConfigOptions, config } from "./config";
 import { getLatestBuildVersion, getLatestRelease } from "./github";
@@ -5,6 +6,7 @@ import { cleanOutputPaths, createCorePackage, createModules, getOutputModules } 
 import { createModuleTypeFiles, createSubModuleTypeFiles } from "./type-creating";
 import { resolve } from "path";
 import { writeChangelogToOutput } from "./changelog";
+import { Runner } from "./runner";
 
 export type ActionOptions = {
     verbose?: boolean;
@@ -19,28 +21,8 @@ type BuildOptions = ActionOptions &
 export async function build(options: BuildOptions) {
     await config.initialize(options);
 
-    console.log("Removing old output");
-    await cleanOutputPaths();
-
-    console.log("Creating type files");
-    await createModuleTypeFiles();
-
-    if (options.submodules) {
-        console.log("Creating submodule files");
-        await createSubModuleTypeFiles();
-    }
-
-    console.log("Creating core module");
-    await createCorePackage();
-
-    console.log("Creating other modules");
-    await createModules(options.submodules);
-
-    await writeChangelogToOutput();
-
-    if (options.commit) {
-        await commitOutput();
-    }
+    const runner = new Runner();
+    await runner.build(options);
 }
 
 export type PublishOptions = {
@@ -66,41 +48,4 @@ export async function checkVersion() {
         exit(-1);
     }
     console.log(`A new version exists: ${latestVersion}`);
-}
-
-async function commitOutput() {
-    const version = config.getOutputVersion();
-
-    const outputBasePath = resolve(`${config.getOutputPath()}/..`);
-
-    console.log("Committing result to GitHub");
-    console.log("Current working directory:", outputBasePath);
-
-    const command = async (args: string[]) => {
-        console.log(args.join(" "));
-        const proc = Bun.spawn(args, {
-            cwd: outputBasePath,
-            stderr: "pipe",
-        });
-
-        const errors = await Bun.readableStreamToText(proc.stderr);
-        if (errors) {
-            console.info(errors);
-        }
-
-        const response = await new Response(proc.stdout).text();
-        console.log(response);
-    };
-
-    try {
-        await command(["pnpm", "install"]);
-        await command(["git", "checkout", "main"]);
-        await command(["git", "pull"]);
-        await command(["git", "add", "-A"]);
-        await command(["git", "commit", "-m", `Bumped to ${version}`]);
-        await command(["git", "push", "origin", "main"]);
-    } catch (err) {
-        console.error(err);
-        exit(1);
-    }
 }

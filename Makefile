@@ -2,7 +2,7 @@ clean:
 	rm src/pulumi-azure-native-version.cache
 
 clean/azure-native:
-	rm -r azure-native
+	rm -rf azure-native
 
 clean/all: clean clean/azure-native
 
@@ -28,4 +28,4 @@ output: azure-native/pull node_modules
 	bun src/index.ts build --no-submodules
 
 output/update-and-commit: azure-native/pull node_modules
-	bun src/index.ts build --commit --no-cache
+	bun src/index.ts build --commit --no-cache --no-submodules

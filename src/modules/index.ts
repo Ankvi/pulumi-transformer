@@ -4,10 +4,6 @@ import { Module } from "./module";
 import { loader } from "./templates";
 import { config } from "../config";
 
-export async function cleanOutputPaths() {
-    await rm(config.getOutputPath(), { recursive: true });
-}
-
 export async function createCorePackage() {
     const coreModule = new Module("core");
     await coreModule.createFolder();
