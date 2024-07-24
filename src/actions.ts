@@ -1,11 +1,7 @@
-import { $ } from "bun";
 import { exit } from "process";
 import { ConfigOptions, config } from "./config";
 import { getLatestBuildVersion, getLatestRelease } from "./github";
-import { cleanOutputPaths, createCorePackage, createModules, getOutputModules } from "./modules";
-import { createModuleTypeFiles, createSubModuleTypeFiles } from "./type-creating";
-import { resolve } from "path";
-import { writeChangelogToOutput } from "./changelog";
+import { getOutputModules } from "./modules";
 import { Runner } from "./runner";
 
 export type ActionOptions = {
