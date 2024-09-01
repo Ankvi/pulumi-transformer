@@ -1,5 +1,5 @@
 clean:
-	rm src/pulumi-azure-native-version.cache
+	rm -f src/pulumi-azure-native-version.cache
 
 clean/azure-native:
 	rm -rf azure-native
