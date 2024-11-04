@@ -1,9 +1,9 @@
 import { cp } from "node:fs/promises";
-import { PackageJson } from "./types";
-import { MODULE_PREFIX } from "../../constants";
-import { config } from "../../config";
 import log from "loglevel";
+import { config } from "../../config";
+import { MODULE_PREFIX } from "../../constants";
 import { getLatestReleaseChangelog } from "../../github";
+import type { PackageJson } from "./types";
 
 type WriteOptions = {
     subModule: IModule;
@@ -30,7 +30,7 @@ class TemplateLoader {
                 type: "git",
             },
             dependencies: {
-                "@pulumi/pulumi": "^3.0.0",
+                "@pulumi/pulumi": "^3.136.0",
             },
             publishConfig: {
                 access: "public",
