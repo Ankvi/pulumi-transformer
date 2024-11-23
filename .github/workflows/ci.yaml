@@ -29,5 +29,7 @@ jobs:
       - uses: ./.github/actions/pulumi-azure-native-cache
 
       - name: Build packages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           make output
