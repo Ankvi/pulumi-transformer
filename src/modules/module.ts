@@ -1,8 +1,8 @@
-import { Dirent } from "node:fs";
+import type { Dirent } from "node:fs";
 import { mkdir, readdir } from "node:fs/promises";
-import { AZURE_PATH, MODULE_PREFIX } from "../constants";
-import { IModule } from "./templates";
 import { config } from "../config";
+import { AZURE_PATH, MODULE_PREFIX } from "../constants";
+import type { IModule } from "./templates";
 
 // I hate these.
 // Matches the following:
@@ -59,7 +59,7 @@ export class Module implements IModule {
                 }
                 await this.writeSubModuleFiles(file);
             } else {
-                throw new Error("Unknown file type: " + file.name);
+                throw new Error(`Unknown file type: ${file.name}`);
             }
         }
     }
@@ -76,8 +76,8 @@ export class Module implements IModule {
         const imports = [...commonModuleImports];
 
         if (
-            newContent.includes(`types.inputs.`) ||
-            newContent.includes(`types.outputs.`) ||
+            newContent.includes("types.inputs.") ||
+            newContent.includes("types.outputs.") ||
             newContent.includes("types.enums.")
         ) {
             imports.push('import * as types from "./types";');
@@ -103,8 +103,8 @@ export class Module implements IModule {
         const imports = [...commonModuleImports];
 
         if (
-            newContent.includes(`types.inputs.`) ||
-            newContent.includes(`types.outputs.`) ||
+            newContent.includes("types.inputs.") ||
+            newContent.includes("types.outputs.") ||
             newContent.includes("types.enums.")
         ) {
             imports.push('import * as types from "./types";');

@@ -22,7 +22,7 @@ class Config {
     private azureNativeVersion?: string;
     private outputVersion?: string;
     private outputPath: string;
-    private useCache: boolean = true;
+    private useCache = true;
 
     constructor() {
         this.outputPath = `${import.meta.dir}/../output/packages`;

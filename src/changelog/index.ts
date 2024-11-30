@@ -1,6 +1,6 @@
-import { getLatestReleaseChangelog } from "../github";
+import { resolve } from "node:path";
 import { config } from "../config";
-import { resolve } from "path";
+import { getLatestReleaseChangelog } from "../github";
 
 async function getChangelog() {
     const changelog = await getLatestReleaseChangelog();

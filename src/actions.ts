@@ -1,5 +1,5 @@
-import { exit } from "process";
-import { ConfigOptions, config } from "./config";
+import { exit } from "node:process";
+import { type ConfigOptions, config } from "./config";
 import { getLatestBuildVersion, getLatestRelease } from "./github";
 import { getOutputModules } from "./modules";
 import { Runner } from "./runner";

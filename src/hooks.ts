@@ -1,6 +1,6 @@
-import { Command } from "commander";
+import type { Command } from "commander";
 import log from "loglevel";
-import { ActionOptions } from "./actions";
+import type { ActionOptions } from "./actions";
 
 export function setVerbosityLevel(command: Command): void {
     const options = command.optsWithGlobals<ActionOptions>();

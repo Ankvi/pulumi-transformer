@@ -1,5 +1,5 @@
-import { Dirent } from "fs";
-import { readdir } from "fs/promises";
+import type { Dirent, PathLike } from "node:fs";
+import { readdir } from "node:fs/promises";
 
 export async function getFolders(path: PathLike): Promise<Dirent[]> {
     try {

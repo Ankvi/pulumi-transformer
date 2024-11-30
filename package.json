@@ -1,18 +1,22 @@
 {
-  "name": "pulumi-transformer",
-  "author": {
-    "name": "Andreas Kvist",
-    "url": "https://github.com/Ankvi"
-  },
-  "dependencies": {
-    "@octokit/rest": "^21.0.2",
-    "commander": "^12.1.0",
-    "loglevel": "^1.9.2"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "bun-types": "^1.1.34",
-    "typescript": "^5.6.3"
-  },
-  "packageManager": "pnpm@8.12.1+sha256.28ca61ece5a496148b73fabc9afb820f9c3fec4f55f04ce45a2cea0a5219f2e1"
+    "name": "pulumi-transformer",
+    "author": {
+        "name": "Andreas Kvist",
+        "url": "https://github.com/Ankvi"
+    },
+    "scripts": {
+        "lint": "biome check",
+        "lint:ts": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@octokit/rest": "^21.0.2",
+        "commander": "^12.1.0",
+        "loglevel": "^1.9.2"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "1.9.4",
+        "bun-types": "^1.1.38",
+        "typescript": "^5.7.2"
+    },
+    "packageManager": "pnpm@8.12.1+sha256.28ca61ece5a496148b73fabc9afb820f9c3fec4f55f04ce45a2cea0a5219f2e1"
 }

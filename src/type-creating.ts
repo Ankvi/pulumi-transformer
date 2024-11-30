@@ -1,10 +1,10 @@
-import { mkdir } from "node:fs/promises";
 import { createReadStream } from "node:fs";
+import { mkdir } from "node:fs/promises";
 import { createInterface } from "node:readline/promises";
 import log from "loglevel";
+import { config } from "./config";
 import { AZURE_PATH, PULUMI_IMPORT_STATEMENT } from "./constants";
 import { getFolderNames } from "./folders";
-import { config } from "./config";
 
 type SubModuleTypeInfo = {
     lines: string[];

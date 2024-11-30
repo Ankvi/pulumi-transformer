@@ -1,8 +1,8 @@
 import { cp, mkdir, readdir, rm } from "node:fs/promises";
+import { config } from "../config";
 import { AZURE_PATH } from "../constants";
 import { Module } from "./module";
 import { loader } from "./templates";
-import { config } from "../config";
 
 export async function createCorePackage() {
     const coreModule = new Module("core");

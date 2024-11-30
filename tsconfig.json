@@ -8,9 +8,7 @@
         "module": "esnext",
         "noEmit": true,
         "strict": true,
-        "types": [
-            "bun-types"
-        ]
+        "types": ["bun-types"]
     },
     "include": ["src/**/*.ts"],
     "exclude": ["node_modules", "**/*.template.ts", "output"]

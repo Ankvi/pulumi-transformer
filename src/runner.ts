@@ -1,11 +1,11 @@
+import { rm } from "node:fs/promises";
+import { resolve } from "node:path";
+import { exit } from "node:process";
+import type { Shell } from "bun";
 import { writeChangelogToOutput } from "./changelog";
-import { exit } from "process";
 import { config } from "./config";
-import { resolve } from "path";
 import { createCorePackage, createModules } from "./modules";
 import { createModuleTypeFiles, createSubModuleTypeFiles } from "./type-creating";
-import { Shell } from "bun";
-import { rm } from "node:fs/promises";
 
 export type BuildOptions = {
     commit?: boolean;
@@ -61,13 +61,13 @@ export class Runner {
         console.log("Current working directory:", outputBasePath);
 
         try {
-            const branch = `release/${version}`;
+            const tag = `v${version}`;
             await this.$`pnpm install`;
-            await this.$`git checkout -b ${branch}`;
             await this.$`git add -A`;
-            await this.$`git commit -m "Release ${version}"`;
-            // await this.$`git push`;
-            await this.$`git push -u origin ${branch}`;
+            await this.$`git commit -m "Bumped to ${tag}"`;
+            await this.$`git push`;
+            await this.$`git tag ${tag}`;
+            await this.$`git push --tags`;
         } catch (err) {
             console.error(err);
             exit(1);
