@@ -55,14 +55,13 @@ export class Runner {
     private async commitOutput() {
         const version = config.getOutputVersion();
 
-        const outputBasePath = resolve(`${config.getOutputPath()}/..`);
-
         console.log("Committing result to GitHub");
-        console.log("Current working directory:", outputBasePath);
+        console.log("Current working directory:", this.outputBasePath);
 
         try {
             const tag = `v${version}`;
             await this.$`pnpm install`;
+            await this.$`make lint`;
             await this.$`git add -A`;
             await this.$`git commit -m "Bumped to ${tag}"`;
             await this.$`git push`;

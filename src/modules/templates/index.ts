@@ -2,7 +2,6 @@ import { cp } from "node:fs/promises";
 import log from "loglevel";
 import { config } from "../../config";
 import { MODULE_PREFIX } from "../../constants";
-import { getLatestReleaseChangelog } from "../../github";
 import type { PackageJson } from "./types";
 
 type WriteOptions = {
@@ -30,7 +29,7 @@ class TemplateLoader {
                 type: "git",
             },
             dependencies: {
-                "@pulumi/pulumi": "^3.136.0",
+                "@pulumi/pulumi": "^3.142.0",
             },
             publishConfig: {
                 access: "public",
