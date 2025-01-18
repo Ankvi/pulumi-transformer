@@ -1,5 +1,14 @@
 # Pulumi Transformer
 
+## Repo status
+
+This project has been merged into the [output
+project](https://github.com/Ankvi/pulumi-azure-native).
+
+As such, no further updates will be made to this repository.
+
+## Introduction
+
 This project seeks to address a challenge that comes with using the
 [Pulumi Azure Native](https://www.pulumi.com/registry/packages/azure-native/)
 package; the size. Azure comes with multiple different version for its resources,
@@ -54,7 +63,9 @@ export namespace aad {
         /**
          * List of Configuration Diagnostics validator results.
          */
-        validatorResults?: pulumi.Input<pulumi.Input<inputs.aad.ConfigDiagnosticsValidatorResultArgs>[]>;
+        validatorResults?: pulumi.Input<
+            pulumi.Input<inputs.aad.ConfigDiagnosticsValidatorResultArgs>[]
+        >;
     }
 
     /**
